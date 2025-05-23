@@ -194,7 +194,20 @@
     .project-video {
       flex: 1 1 40%;
       max-width: 40%;
+      aspect-ratio: 9 / 16;              /* Forces a vertical layout */
+      overflow: hidden;                  /* Hides overflowed parts */
+      position: relative;
     }
+    
+    .project-video video {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      object-fit: cover;
+    }
+
     
     .project-video video {
       width: 100%;
@@ -243,9 +256,6 @@
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 Asvin Sankaran
-  </footer>
   <div style="height: 4px; background-color: #282626; margin: 2rem auto; width: 20%;"></div>
   <div class="project-wrapper">
     <h2>Projects & Roles</h2>
@@ -260,7 +270,6 @@
         </div>
         <div class="project-text">
           <h3>Captain – UBC Sailbot</h3>
-          <p class="project-link">ubcsailbot.org &rsaquo;</p>
           <p>
             I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate
             students focusing on the design, construction, and testing of fully autonomous sailboats...
