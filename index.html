@@ -126,13 +126,12 @@
     }
     
     .project-video {
-      width: 280px;            /* Controls visible width of the video */
-      height: 355px;           /* Fixed vertical size */
+      width: 280px;
+      height: 355px;
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
-      border-radius: 0;
-      background-color: black; /* Optional: ensures no background bleed */
+      background-color: black; /* Fallback if video doesn't load */
     }
 
     .project-video video {
@@ -140,9 +139,9 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      height: 100%;
-      width: auto;
-      object-fit: cover;
+      min-height: 100%;     /* Force fill vertically */
+      min-width: 100%;      /* Force fill horizontally */
+      object-fit: cover;    /* Crop and scale */
     }
   
     .project-text {
