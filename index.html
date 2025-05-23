@@ -119,23 +119,29 @@
     
     .project-container {
       display: flex;
-      background-color: #eaeaea;
-      border-radius: 6px;
+      background-color: #e4e4e4;
+      border-radius: 0; /* ← removes rounding */
       overflow: hidden;
       margin: 2rem 0;
     }
     
     .project-video {
-      flex: 1 1 40%;
-      max-width: 40%;
-    }
-    
-    .project-video {
-      flex: 0 0 300px;         /* Fixed width */
-      height: 355px;           /* ~16:9 vertical crop */
+      width: 280px;            /* Adjust width to desired vertical crop */
+      height: 355px;
       overflow: hidden;
       position: relative;
-      border-radius: 8px;      /* Optional for smooth edges */
+      flex-shrink: 0;
+      border-radius: 0;
+    }
+
+    .project-video video {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      object-fit: cover;
     }
     
     .project-text {
