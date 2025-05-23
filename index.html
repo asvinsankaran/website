@@ -126,12 +126,13 @@
     }
     
     .project-video {
-      width: 280px;            /* Adjust width to desired vertical crop */
-      height: 355px;
+      width: 280px;            /* Controls visible width of the video */
+      height: 355px;           /* Fixed vertical size */
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
       border-radius: 0;
+      background-color: black; /* Optional: ensures no background bleed */
     }
 
     .project-video video {
@@ -143,7 +144,7 @@
       width: auto;
       object-fit: cover;
     }
-    
+  
     .project-text {
       flex: 2 1 60%;
       padding: 2rem;
