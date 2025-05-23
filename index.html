@@ -192,11 +192,12 @@
     }
     
     .project-video {
-      flex: 0 0 200px;         /* Fixed width */
-      height: 355px;           /* ~16:9 vertical crop */
+      height: 355px;
+      width: 250px;             /* Wider than before, adjust as needed */
       overflow: hidden;
       position: relative;
-      border-radius: 8px;      /* Optional for smooth edges */
+      border-radius: 8px;
+      flex-shrink: 0;           /* Prevent it from shrinking in flex layout */
     }
     
     .project-video video {
@@ -208,7 +209,6 @@
       object-fit: cover;
     }
 
-    
     .project-text {
       flex: 2 1 60%;
       padding: 2rem;
