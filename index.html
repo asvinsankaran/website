@@ -154,6 +154,67 @@
       margin-top: -0.5rem;
       margin-bottom: 1rem;
     }
+    
+    .project-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    
+    .project-wrapper h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+    
+    .project-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+    
+    .project-container {
+      display: flex;
+      background-color: #eaeaea;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    
+    .project-video {
+      flex: 1 1 40%;
+      max-width: 40%;
+    }
+    
+    .project-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .project-text {
+      flex: 2 1 60%;
+      padding: 2rem;
+    }
+    
+    .project-text h3 {
+      font-size: 1.8rem;
+      margin-top: 0;
+      font-weight: 800;
+    }
+    
+    .project-text .project-link {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
 
   </style>
 </head>
@@ -181,35 +242,32 @@
     &copy; 2025 Asvin Sankaran
   </footer>
   <div style="height: 4px; background-color: #282626; margin: 2rem auto; width: 20%;"></div>
-  <h2>Projects & Roles</h2>
+  <div class="project-wrapper">
+    <h2>Projects & Roles</h2>
   
-  <a href="sailbot.html" class="project-card">
-    <div class="project-container">
-      <div class="project-video">
-        <video autoplay muted loop playsinline>
-          <source src="sailbot-preview.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <a href="sailbot.html" class="project-card">
+      <div class="project-container">
+        <div class="project-video">
+          <video autoplay muted loop playsinline>
+            <source src="sailbot-preview.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project-text">
+          <h3>Captain – UBC Sailbot</h3>
+          <p class="project-link">ubcsailbot.org &rsaquo;</p>
+          <p>
+            I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate
+            students focusing on the design, construction, and testing of fully autonomous sailboats...
+          </p>
+          <p>
+            For the past 3+ years, I've always spent more time working on Sailbot than studying...
+          </p>
+        </div>
       </div>
-      <div class="project-text">
-        <h3>Captain – UBC Sailbot</h3>
-        <p class="project-link">ubcsailbot.org &rsaquo;</p>
-        <p>
-          I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate
-          students focusing on the design, construction, and testing of fully autonomous sailboats.
-          Our previous project (pictured) was an 18ft sailboat we developed from scratch. Currently,
-          we are in the design phase of a new project, capable of using this robotics technology to
-          collect oceanic and atmospheric data in the Pacific Ocean.
-        </p>
-        <p>
-          For the past 3+ years, I've always spent more time working on Sailbot than studying. The team
-          provides a unique opportunity to lead innovative challenges and passionate students. I started
-          with technical engineering, and now I focus more on high-level project management and
-          integration.
-        </p>
-      </div>
-    </div>
-  </a>
+    </a>
+  </div>
+
 
 </body>
 </html>
