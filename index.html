@@ -130,11 +130,12 @@
       max-width: 40%;
     }
     
-    .project-video video {
-      width: 20%;
-      height: 20%;
-      object-fit: cover;
-      display: block;
+    .project-video {
+      flex: 0 0 280px;         /* Fixed width */
+      height: 355px;           /* ~16:9 vertical crop */
+      overflow: hidden;
+      position: relative;
+      border-radius: 8px;      /* Optional for smooth edges */
     }
     
     .project-text {
