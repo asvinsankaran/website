@@ -126,24 +126,24 @@
     }
     
     .project-video {
-      width: 250px;
-      height: 600px; /*THIS ONE*/
+      width: 260px;               /* Looks like a phone screen */
+      height: 460px;              /* 9:16-ish */
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
-      background-color: black; /* Fallback if video doesn't load */
+      background-color: black;
     }
-
+    
     .project-video video {
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      min-height: 100%;     /* Force fill vertically */
-      min-width: 100%;      /* Force fill horizontally */
-      object-fit: cover;    /* Crop and scale */
+      width: auto;
+      height: 100%;
+      object-fit: fill;
     }
-  
+    
     .project-text {
       flex: 2 1 60%;
       padding: 2rem;
@@ -198,24 +198,6 @@
       margin: 2rem 0;
     }
     
-    .project-video {
-      height: 355px;
-      width: 280px;             /* Wider than before, adjust as needed */
-      overflow: hidden;
-      position: relative;
-      border-radius: 0px;
-      flex-shrink: 0;           /* Prevent it from shrinking in flex layout */
-    }
-    
-    .project-video video {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 100%;
-      object-fit: cover;
-    }
-
     .project-text {
       flex: 2 1 60%;
       padding: 2rem;
