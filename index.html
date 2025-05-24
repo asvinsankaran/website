@@ -134,14 +134,20 @@
       background-color: black;
     }
     
+    .horizontal-video {
+      width: 480px;
+      height: 270px; /* 16:9 aspect ratio */
+    }
+    
+    /* Shared video styling */
     .project-video video {
       position: absolute;
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: auto;
       height: 100%;
-      object-fit: fill;
+      width: auto;
+      object-fit: cover;
     }
     
     .project-text {
@@ -297,7 +303,7 @@
     
     <a href="jarvis.html" class="project-card">
       <div class="project-container">
-        <div class="project-video">
+        <div class="project-video horizontal-video">
           <video autoplay muted loop playsinline>
             <source src="j2frames.mp4" type="video/mp4">
             Your browser does not support the video tag.
