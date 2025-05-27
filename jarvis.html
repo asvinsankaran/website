@@ -144,10 +144,13 @@
         <p style="font-size: 0.95rem;">Crude PID with lots of overshooting</p>
       </div>
     </div>
-    <video autoplay muted loop playsinline style="width: 100%; height: auto; position: absolute; top: -50px; bottom: -100px; left: 0;">
-      <source src="j2frames.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div style="margin: 2rem 0;">
+      <video autoplay muted loop playsinline style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 0;">
+        <source src="j2frames.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
     <p>The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to find the respective PWM speed of each motor. </p>
     <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
     <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
