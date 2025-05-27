@@ -188,17 +188,6 @@
       margin-bottom: 2rem;
     }
     
-    .project-card {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    
-    .project-card:hover {
-      transform: scale(1.02);
-    }
-    
     .project-text h3 {
       font-size: 1.8rem;
       margin-top: 0;
@@ -317,7 +306,7 @@
     
     .course-projects-card {
       background-color: #e4e4e4;
-      padding: 2rem;
+      padding: 0;
       border-radius: 0;
     }
 
@@ -325,6 +314,11 @@
       margin-top: 0;  /* remove top space if inherited */
       padding-top: 1rem; /* match other sections (adjust as needed) */
     }
+
+    .project-wrapper + .project-wrapper {
+      margin-top: 2rem; /* same as other project-container vertical spacing */
+    }
+
   </style>
 </head>
 
@@ -426,36 +420,38 @@
     <!-- Course Projects Section -->
     <div class="project-wrapper">
       <div class="course-projects-card">
-        <h2>Course Projects</h2>
-    
-        <div class="course-projects">
-          <div class="course-card" onclick="togglePopup('popup1')">
-            <video autoplay muted loop playsinline>
-              <source src="chonky4.mp4" type="video/mp4" />
-            </video>
-            <div class="course-text">
-              <h3>CHONKY</h3>
-              <p>In a small group, we designed, manufactured, and tested a fully autonomous robot to compete in the 2022 Engineering Physics Robot Summer Competition.</p>
+        <div style="padding: 2rem;">
+          <h2>Course Projects</h2>
+      
+          <div class="course-projects">
+            <div class="course-card" onclick="togglePopup('popup1')">
+              <video autoplay muted loop playsinline>
+                <source src="chonky4.mp4" type="video/mp4" />
+              </video>
+              <div class="course-text">
+                <h3>CHONKY</h3>
+                <p>In a small group, we designed, manufactured, and tested a fully autonomous robot to compete in the 2022 Engineering Physics Robot Summer Competition.</p>
+              </div>
             </div>
-          </div>
-    
-          <div class="course-card" onclick="togglePopup('popup2')">
-            <video autoplay muted loop playsinline>
-              <source src="353video.mp4" type="video/mp4" />
-            </video>
-            <div class="course-text">
-              <h3>Computer Vision and Controls</h3>
-              <p>With only a camera stream fed through a ROS node, we used computer vision to control a virtual car around the course and read licence plates using a CNN.</p>
+      
+            <div class="course-card" onclick="togglePopup('popup2')">
+              <video autoplay muted loop playsinline>
+                <source src="353video.mp4" type="video/mp4" />
+              </video>
+              <div class="course-text">
+                <h3>Computer Vision and Controls</h3>
+                <p>With only a camera stream fed through a ROS node, we used computer vision to control a virtual car around the course and read licence plates using a CNN.</p>
+              </div>
             </div>
-          </div>
-    
-          <div class="course-card" onclick="togglePopup('popup3')">
-            <video autoplay muted loop playsinline>
-              <source src="carsteer.mp4" type="video/mp4" />
-            </video>
-            <div class="course-text">
-              <h3>Car Steering Mechanical Design</h3>
-              <p>Following Shigley's Mechanical Design textbook, I worked in a small group to redesign a car's steering actuation system without any electrical/motor aid.</p>
+      
+            <div class="course-card" onclick="togglePopup('popup3')">
+              <video autoplay muted loop playsinline>
+                <source src="carsteer.mp4" type="video/mp4" />
+              </video>
+              <div class="course-text">
+                <h3>Car Steering Mechanical Design</h3>
+                <p>Following Shigley's Mechanical Design textbook, I worked in a small group to redesign a car's steering actuation system without any electrical/motor aid.</p>
+              </div>
             </div>
           </div>
         </div>
