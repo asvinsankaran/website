@@ -252,6 +252,13 @@
       object-fit: cover;
     }
     
+    .course-card video {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
     .course-text {
       padding: 1rem;
       background-color: #fff;
@@ -413,7 +420,11 @@
       
         <div class="course-projects">
           <div class="course-card" onclick="togglePopup('popup1')">
-            <img src="chonkypreview.png" alt="CHONKY Project Preview">
+            <video autoplay muted loop playsinline>
+              <source src="chonkypreview.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
             <div class="course-text">
               <h3>CHONKY</h3>
               <p>In a small group, we designed, manufactured, and tested a fully autonomous robot...</p>
@@ -421,7 +432,11 @@
           </div>
       
           <div class="course-card" onclick="togglePopup('popup2')">
-            <img src="353video.png" alt="Computer Vision Preview">
+            <video autoplay muted loop playsinline>
+              <source src="353video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
             <div class="course-text">
               <h3>Computer Vision and Controls</h3>
               <p>With only a camera stream fed through a ROS node, we used computer vision...</p>
@@ -429,7 +444,11 @@
           </div>
       
           <div class="course-card" onclick="togglePopup('popup3')">
-            <img src="carsteer.png" alt="Mechanical Design Preview">
+            <video autoplay muted loop playsinline>
+              <source src="carsteer.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+
             <div class="course-text">
               <h3>Car Steering Mechanical Design</h3>
               <p>Following Shigley's Mechanical Design textbook, I worked in a small group...</p>
