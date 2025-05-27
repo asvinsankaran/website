@@ -1,139 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UBC Sailbot - Design Team</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UBC Sailbot – Asvin Sankaran</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      background-color: #f4f4f4;
       color: #111;
     }
 
-    .wrapper {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
     }
 
-    h1 {
-      font-size: 2.5rem;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 0.5rem;
+      border-left: 6px solid #535353;
+      padding-left: 1rem;
+      margin-left: 3rem;
+      line-height: 1.2;
     }
 
-    a {
+    header a {
       text-decoration: none;
       color: #333;
       font-weight: 500;
+      font-size: 1rem;
     }
 
-    .intro {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin-top: 2rem;
+    .section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background-color: #e4e4e4;
+      padding: 3rem 2rem;
+      border-radius: 0;
     }
 
-    .intro-text {
-      flex: 1 1 400px;
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    .intro-text img {
-      max-width: 150px;
-      display: block;
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
       margin-bottom: 1rem;
     }
 
-    .intro-image {
-      flex: 1 1 300px;
+    .section p, .section li {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #222;
     }
 
-    .intro-image img {
-      width: 100%;
-      border-radius: 4px;
-      object-fit: cover;
+    .section ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
     }
 
-    .team-photo {
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
       margin-top: 2rem;
+      flex-wrap: wrap;
     }
 
-    .team-photo img {
+    .image-row img {
       width: 100%;
+      max-width: 280px;
+      height: auto;
       border-radius: 4px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 800;
     }
 
     .caption {
-      font-size: 1rem;
-      color: #333;
-      line-height: 1.8;
-      max-width: 900px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #444;
+      max-width: 280px;
     }
 
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .intro {
-        flex-direction: column;
-      }
+    .image-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   </style>
 </head>
 <body>
-  <!-- Header (identical to home page) -->
-  <header style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; background-color: #f4f4f4; border-bottom: 1px solid #ccc;">
-    <h1 style="margin: 0; font-size: 2rem; font-weight: 800; border-left: 6px solid #535353; padding-left: 1rem; margin-left: 3rem; line-height: 1.2;">
-      Asvin Sankaran<br>Portfolio
-    </h1>
-    <a href="mailto:asvinsankaran1@gmail.com" style="text-decoration: none; color: #333; font-weight: 500; font-size: 1rem;">
-      asvinsankaran1@gmail.com
-    </a>
+
+  <!-- Header -->
+  <header>
+    <h1>Asvin Sankaran<br>Portfolio</h1>
+    <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
   </header>
 
-  <div class="wrapper">
-    <h1>UBC Sailbot – Design Team</h1>
-    <a href="https://www.ubcsailbot.org" target="_blank">ubcsailbot.org ›</a>
-
-    <div class="intro">
-      <div class="intro-text">
-        <img src="sailbotlogo.png" alt="UBC Sailbot Logo">
-        <p>I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate students focussing on the design, construction, and testing of fully autonomous sailboats. Our previous project (pictured) is an 18ft sailboat we created from scratch over many years. Currently, we are in the design phase of a new project, capable of using this robotics technology to collect oceanic and atmospheric data.</p>
-      </div>
-      <div class="intro-image">
-        <img src="rayepic.jpg" alt="Sailbot Sailing">
-      </div>
+  <!-- Sailbot Section -->
+  <div class="section">
+    <h2>UBC Sailbot – Design Team</h2>
+    <p><a href="https://ubcsailbot.org" target="_blank" style="font-size: 0.9rem; color: #555;">ubcsailbot.org ›</a></p>
+    <div class="image-row">
+      <img src="sailbot-logo.png" alt="UBC Sailbot Logo" style="max-width: 120px;">
+      <p style="flex: 1; margin: 0 1rem;">
+        I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate students focusing on the design, construction, and testing of fully autonomous sailboats. Our previous project (pictured) is an 18ft sailboat we created from scratch over many years. Currently, we are in the design phase of a new project, capable of using this robotics technology to collect oceanic and atmospheric data.
+      </p>
+      <img src="raye-ocean.png" alt="Raye Sailbot on Ocean" style="max-width: 250px;">
     </div>
 
-    <div class="team-photo">
-      <img src="teampic.jpg" alt="UBC Sailbot Team">
+    <div style="margin-top: 2rem;">
+      <img src="sailbot-teamphoto.png" alt="UBC Sailbot Team Photo" style="width: 100%; max-width: 100%;">
     </div>
 
-    <h2>Captain</h2>
-    <p class="caption">
-      I began this role in my second year, and have had the unique opportunity to make many improvements to our team’s structure, organization, and project management in the past 2.5 years.
-    </p>
-    <ul class="caption">
-      <li>Revising our team’s leadership organization and building formality and responsibility into the team structure</li>
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Captain</h3>
+    <p>I began this role in my second year, and have had the unique opportunity to make many improvements to our team's structure, organization, and project management in the past 2.5 years.</p>
+
+    <p>Some of my favorite accomplishments include:</p>
+    <ul>
+      <li>Revising our team's leadership organization and building formality and responsibility into the team structure</li>
       <li>Spearheading a project management initiative by holding teams accountable to macro and micro-scale timelines</li>
       <li>Scoping and defining the team and project’s 3 year plan</li>
       <li>Teaching students about project management, leadership, and team-work</li>
@@ -141,39 +130,16 @@
       <li>Managing large project budgets and dictating financial decisions, funding and grants</li>
       <li>Creating presentation opportunities for students to develop their communication skills</li>
     </ul>
-  
-    <!-- Image Trio with Captions -->
-    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
-      <div style="flex: 1; text-align: center;">
-        <img src="imdc.jpg" alt="Conference" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Presenting our team at the International Marine Design Conference</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="plrspic.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">A model of our new project POLARIS, where I oversee and guide technical design decisions</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="rayepic.jpg" alt="Previous Sailboat" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Our previous project Raye</p>
-      </div>
-    </div>
-  
-    <!-- Mechanical Lead Section -->
-    <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 3rem;">Mechanical Lead</h2>
-    <p style="font-size: 1.05rem; line-height: 1.8;">
-      I was promoted to this role soon after my first year given the aptitude I had for the mechanical engineering on this project.
-      In my time as a mechanical lead, I led electrical integration projects, as well as initial rudder design.
-    </p>
-  
-    <p style="font-size: 1.05rem; font-weight: 500;">Some of the projects I led include:</p>
-    <ul style="font-size: 1.05rem; line-height: 1.8;">
-      <li>Statistical modelling of our boat’s theoretical solar panel generation</li>
-      <li>Analysis of our boat’s power budgeting comparing consumption to generation</li>
-      <li>Drive electrical design decisions based on power consumption</li>
-      <li>Initial design of our boat’s rudder blade</li>
-      <li>Fluid simulation and calculation for rudder lift/drag</li>
-    </ul>
-  </div>
 
-</body>
-</html>
+    <div class="image-row">
+      <div class="image-col">
+        <img src="conference-presentation.png" alt="Sailbot at Conference">
+        <div class="caption">Presenting our team at the International Marine Design Conference</div>
+      </div>
+      <div class="image-col">
+        <img src="polaris-model.png" alt="POLARIS model">
+        <div class="caption">A model of our new project POLARIS, where I oversee and guide technical design decisions</div>
+      </div>
+      <div class="image-col">
+        <img src="raye-close.png" alt="Sailbot Raye Close-up">
+        <div class="caption">Our previous
