@@ -123,6 +123,29 @@
       <li>Spent much time researching and testing different 3D triangulation algorithms as there are 3 spatial dimentions (XYZ) and 4 motors (overconstrained)</li>
       <li>Implemented a gradient descent algorithm to calculate the most likely position of intersection of the wires/spheres for triangulation (quadrilateration)</li>
     </ul>
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 2 - SpiderCam Design and 2D Testing</h3>
+    <p>Inspired by SpiderCams - the cameras used in stadiums to record football games - I realized that this is a much simpler hardware design to implement.</p>
+    <p>I started with the 2D case using 2 winches, an Arduino UNO, and many 3D printed iterations. I used computer vision for positional encoding, where I used a red, green, and blue LED on the module to make triangulation easier by isolating the RGB peaks. From the location, I could calculate a setpoint, path, PID, and PWM duty cycle.</p>
+    <p>The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to find the respective PWM speed of each motor. </p>
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 3 - Improving Reliability and Attempting 3D Control</h3>
+    <p>I made a lot of changes to the hardware and controls of the robot in this revision:</p>
+    <ul>
+      <li>Use encoded motors to improve accuracy and decrease latency from the computer vision algorithm</li>
+      <li>Upgraded from an Arduino to an ELEGOO for more interrupt and PWM pins</li>
+      <li>Spent much time researching and testing different 3D triangulation algorithms as there are 3 spatial dimentions (XYZ) and 4 motors (overconstrained)</li>
+      <li>Implemented a gradient descent algorithm to calculate the most likely position of intersection of the wires/spheres for triangulation (quadrilateration)</li>
+    </ul>
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
+    <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
+    <ul>
+      <li>Use encoded motors to improve accuracy and decrease latency from the computer vision algorithm</li>
+      <li>Upgraded from an Arduino to an ELEGOO for more interrupt and PWM pins</li>
+      <li>Spent much time researching and testing different 3D triangulation algorithms as there are 3 spatial dimentions (XYZ) and 4 motors (overconstrained)</li>
+      <li>Implemented a gradient descent algorithm to calculate the most likely position of intersection of the wires/spheres for triangulation (quadrilateration)</li>
+    </ul>
   
     <!-- Image Trio with Captions -->
     <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
