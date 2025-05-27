@@ -297,6 +297,17 @@
       cursor: pointer;
     }
 
+    .course-projects-bg {
+      background-color: #e4e4e4;
+      padding: 3rem 0;
+    }
+    
+    .course-projects-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+
   </style>
 </head>
 
@@ -396,34 +407,36 @@
       </div>
     </a>
     <!-- Course Projects Section -->
-    <div class="course-projects-wrapper">
-      <h2>Course Projects</h2>
-    
-      <div class="course-projects">
-        <div class="course-card" onclick="togglePopup('popup1')">
-          <img src="chonkypreview.png" alt="CHONKY Project Preview">
-          <div class="course-text">
-            <h3>CHONKY</h3>
-            <p>In a small group, we designed, manufactured, and tested a fully autonomous robot...</p>
+    <div class="course-projects-bg">
+      <div class="course-projects-wrapper">
+        <h2>Course Projects</h2>
+      
+        <div class="course-projects">
+          <div class="course-card" onclick="togglePopup('popup1')">
+            <img src="chonkypreview.png" alt="CHONKY Project Preview">
+            <div class="course-text">
+              <h3>CHONKY</h3>
+              <p>In a small group, we designed, manufactured, and tested a fully autonomous robot...</p>
+            </div>
+          </div>
+      
+          <div class="course-card" onclick="togglePopup('popup2')">
+            <img src="353video.png" alt="Computer Vision Preview">
+            <div class="course-text">
+              <h3>Computer Vision and Controls</h3>
+              <p>With only a camera stream fed through a ROS node, we used computer vision...</p>
+            </div>
+          </div>
+      
+          <div class="course-card" onclick="togglePopup('popup3')">
+            <img src="carsteer.png" alt="Mechanical Design Preview">
+            <div class="course-text">
+              <h3>Car Steering Mechanical Design</h3>
+              <p>Following Shigley's Mechanical Design textbook, I worked in a small group...</p>
+            </div>
           </div>
         </div>
-    
-        <div class="course-card" onclick="togglePopup('popup2')">
-          <img src="353video.png" alt="Computer Vision Preview">
-          <div class="course-text">
-            <h3>Computer Vision and Controls</h3>
-            <p>With only a camera stream fed through a ROS node, we used computer vision...</p>
-          </div>
-        </div>
-    
-        <div class="course-card" onclick="togglePopup('popup3')">
-          <img src="carsteer.png" alt="Mechanical Design Preview">
-          <div class="course-text">
-            <h3>Car Steering Mechanical Design</h3>
-            <p>Following Shigley's Mechanical Design textbook, I worked in a small group...</p>
-          </div>
-        </div>
-      </div>
+      <\div>
     </div>
     
     <!-- Popups -->
