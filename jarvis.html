@@ -129,9 +129,28 @@
     <p>I started with the 2D case using 2 winches, an Arduino UNO, and many 3D printed iterations. I used computer vision for positional encoding, where I used a red, green, and blue LED on the module to make triangulation easier by isolating the RGB peaks. From the location, I could calculate a setpoint, path, PID, and PWM duty cycle.</p>
     <p>The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to find the respective PWM speed of each motor. </p>
 
-    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
-    <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
-  
+    <div style="background-color: #ccc; padding: 2rem; margin-top: 3rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <!-- Left side: Title + Text -->
+        <div style="flex: 2; min-width: 280px;">
+          <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem;">Rev. 1 – Cartesian XYZ Design & Prototyping</h3>
+          <p style="font-size: 1.05rem; line-height: 1.6;">
+            Started with a 3D printer-inspired Cartesian model using ropes to create a deterministic control. But this introduces many issues in electrical integration, error propagation, and many unrealistic assumptions like non-slip ropes, no stretch, minimal backlash, etc.
+          </p>
+        </div>
+    
+        <!-- Right side: Two stacked images -->
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem; min-width: 180px; align-items: center;">
+          <img src="model1cad.png" alt="CAD Gear Model" style="width: 100%; max-width: 180px;" />
+          <img src="model1.png" alt="Motor Assembly" style="width: 100%; max-width: 180px;" />
+        </div>
+      </div>
+    
+      <!-- Bottom full-width image -->
+      <div style="margin-top: 2rem; text-align: center;">
+        <img src="gantry1.png" alt="Full CAD Diagram" style="width: 100%; max-width: 100%;" />
+      </div>
+    </div>
     <!-- Image Trio with Captions -->
     <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
       <div style="flex: 1; text-align: center;">
