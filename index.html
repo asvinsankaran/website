@@ -26,9 +26,9 @@
       margin: 0;
       font-size: 2rem;
       font-weight: 800;
-      border-left: 6px solid #535353; /* darker gray */
-      padding-left: 1rem;             /* increase spacing */
-      margin-left: 3rem;              /* push the entire h1 block right */
+      border-left: 6px solid #535353;
+      padding-left: 1rem;
+      margin-left: 3rem;
       line-height: 1.2;
     }
 
@@ -45,7 +45,6 @@
       padding: 2rem;
       max-width: 1100px;
       margin: auto;
-      background-color: #f4f4f4;
     }
 
     .image-section {
@@ -56,7 +55,7 @@
 
     .image-section img {
       max-width: 100%;
-      border-radius: 0px;
+      border-radius: 0;
       height: auto;
     }
 
@@ -89,58 +88,48 @@
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.9rem;
-      color: #666;
+    .project-wrapper, .course-projects-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
+    .project-wrapper h2, .course-projects-wrapper h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
 
-      .text-section h2 {
-        font-size: 2rem;
-      }
-    }
-    
-    .project-card {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    
-    .project-card:hover {
-      transform: scale(1.02);
-    }
-    
-    .project-container {
+    .project-container, .course-projects {
       display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .project-container {
       background-color: #eaeaea;
-      border-radius: 0;
       overflow: hidden;
       margin: 2rem 0;
     }
-    
-    .project-video {
-      width: 270px;               /* Looks like a phone screen */
-      height: 500px;              /* 9:16-ish */
-      overflow: hidden;
+
+    .project-video, .horizontal-video {
       position: relative;
       flex-shrink: 0;
       background-color: black;
     }
-    
+
+    .project-video {
+      width: 270px;
+      height: 500px;
+    }
+
     .horizontal-video {
       width: 480px;
-      height: 270px; /* 16:9 aspect ratio */
+      height: 270px;
     }
-    
-    /* Shared video styling */
-    .project-video video {
+
+    .project-video video, .horizontal-video video {
       position: absolute;
       top: 0;
       left: 50%;
@@ -149,80 +138,31 @@
       width: auto;
       object-fit: cover;
     }
-    
-    .project-text {
+
+    .project-text, .course-text {
       flex: 2 1 60%;
-      padding: 2rem 4rem;   /* ⬅️ 2rem top/bottom, 3rem left/right */
-      background-color: #e4e4e4;
-      color: #222;
+      padding: 2rem 4rem;
       font-size: 1.05rem;
       font-weight: 400;
       line-height: 1.8;
     }
-    
-    .project-text h3 {
-      font-size: 1.8rem;
-      margin: 0 0 0.2rem 0;  /* ⬅️ reduce space under title */
-      font-weight: 800;
-    }
-    
-    .project-text p:first-of-type {
-      margin-top: 0;
-    }
-    
-    .project-text .project-link {
-      font-size: 0.9rem;
-      color: #555;
-      margin: 0 0 0.5rem 0;
+
+    .project-text {
+      background-color: #e4e4e4;
+      color: #222;
     }
 
-    .project-wrapper {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
+    .course-text {
+      background-color: #fff;
+      color: #333;
     }
-    
-    .project-wrapper h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-    
-    .project-text h3 {
+
+    .project-text h3, .course-text h3 {
       font-size: 1.8rem;
-      margin-top: 0;
       font-weight: 800;
+      margin: 0 0 0.2rem 0;
     }
-    
-    .project-text .project-link {
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: -0.5rem;
-      margin-bottom: 1rem;
-    }
-    .project-container.reverse {
-      flex-direction: row-reverse !important;
-    }
-    
-    .course-projects-wrapper {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-    }
-    
-    .course-projects-wrapper h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 2rem;
-    }
-    
-    .course-projects {
-      display: flex;
-      gap: 2rem;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    
+
     .course-card {
       width: 300px;
       background-color: #fff;
@@ -230,46 +170,17 @@
       transition: transform 0.3s ease;
       box-shadow: none;
     }
-    
+
     .course-card:hover {
-      transform: scale(1.02); /* Hover pop-out effect */
+      transform: scale(1.02);
     }
-    
-    .course-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    
+
     .course-card video {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      display: block;
     }
 
-    .course-text {
-      padding: 1rem;
-      background-color: #fff;
-      font-size: 1.05rem;
-      font-weight: 400;
-      line-height: 1.8;
-      color: #333; /* keep this different if desired */
-    }
-    
-    .course-text h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.3rem;
-      font-weight: 800;
-    }
-    
-    .course-text p {
-      font-size: 0.95rem;
-      color: #333;
-      line-height: 1.4;
-    }
-    
-    /* Popup styles */
     .popup-overlay {
       display: none;
       position: fixed;
@@ -279,7 +190,7 @@
       align-items: center;
       z-index: 1000;
     }
-    
+
     .popup {
       background: #fff;
       padding: 2rem;
@@ -288,7 +199,7 @@
       border-radius: 8px;
       position: relative;
     }
-    
+
     .popup span {
       position: absolute;
       top: 10px;
@@ -297,87 +208,41 @@
       cursor: pointer;
     }
 
-    .course-projects-bg {
-      background-color: #e4e4e4;
-      padding: 3rem 0;
-    }
-    
-    .course-projects-wrapper {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-    }
-    
-    .course-projects-card {
-      background-color: #e4e4e4;
-      padding: 1rem 0 !important;
-      margin-top: 0 !important;
-      border-radius: 0;
-    }
-
-    .project-wrapper:last-of-type {
-      margin-top: 0;  /* remove top space if inherited */
-      padding-top: 0.5rem; /* match other sections (adjust as needed) */
-    }
-
-    .project-wrapper + .project-wrapper {
-      margin-top: 0.5rem !important; /* same as other project-container vertical spacing */
-    }
-    
-    .course-projects-card > div {
-      padding: 1rem 2rem !important; /* reduces space inside grey box */
-    }
-    
-    .project-wrapper + .project-wrapper {
-      margin-top: 1rem !important; /* reduces space between sections */
-    }
-
-    .course-projects-inner {
-      padding: 1rem 2rem;
-    }
-
-    .course-projects-wrapper {
-      padding-top: 0rem !important;
-      padding-bottom: 1rem !important;
-      margin-top: 0 !important;
-    }
-    
     .footer-spacing {
-      margin-top: 4rem; /* spacing above the line */
+      margin-top: 4rem;
     }
-    
+
     hr {
       margin: 0 auto;
       border: none;
       border-top: 1px solid #aaa;
       width: 90%;
     }
-    
+
     .custom-footer {
       text-align: center;
       padding: 2.5rem 1rem;
-      font-family: 'Inter', sans-serif;
       background-color: #f4f4f4;
       line-height: 2rem;
     }
-    
+
     .footer-name {
       font-weight: 800;
       font-size: 1.2rem;
       margin: 0;
     }
-    
+
     .dark-text {
-      color: #111; /* same dark as intro text */
+      color: #111;
     }
-    
+
     .footer-email {
       font-weight: 500;
       font-size: 1rem;
       margin: 0;
       color: #111;
     }
-    
+
     .footer-link a {
       font-weight: 600;
       font-size: 1rem;
@@ -385,17 +250,13 @@
       color: #111;
       letter-spacing: 0.05em;
     }
-    
+
     .footer-link a:hover {
       text-decoration: underline;
     }
-
-
   </style>
 </head>
-
 <body>
-
   <header>
     <h1>Asvin Sankaran<br>Portfolio</h1>
     <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
