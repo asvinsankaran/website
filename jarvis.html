@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,24 +126,39 @@
     <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 2 - SpiderCam Design and 2D Testing</h3>
     <p>Inspired by SpiderCams - the cameras used in stadiums to record football games - I realized that this is a much simpler hardware design to implement.</p>
     <p>I started with the 2D case using 2 winches, an Arduino UNO, and many 3D printed iterations. I used computer vision for positional encoding, where I used a red, green, and blue LED on the module to make triangulation easier by isolating the RGB peaks. From the location, I could calculate a setpoint, path, PID, and PWM duty cycle.</p>
+    
+    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
+      <div style="flex: 1; text-align: center;">
+        <img src="spidercam.jpg" alt="Conference" style="width: 100%; max-width: 300px;" />
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <img src="3dprint.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <video autoplay muted loop playsinline style="width: 100%; max-width: 300px; border-radius: 0px;">
+          <source src="rev2jarvis.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
     <p>The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to find the respective PWM speed of each motor. </p>
-
     <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
     <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
-  
+
+    <div style="margin-top: 2rem; text-align: center;">
+      <img src="gantry1.png" alt="Full CAD Diagram" style="width: 100%; max-width: 100%;" />
+    </div>
+    
     <!-- Image Trio with Captions -->
     <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
       <div style="flex: 1; text-align: center;">
-        <img src="model1.jpg" alt="Conference" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Presenting at the International Marine Design Conference</p>
+        <img src="model1cad.jpg" alt="Conference" style="width: 100%; max-width: 300px;" />
       </div>
       <div style="flex: 1; text-align: center;">
-        <img src="model1cad.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">A model of our new project POLARIS</p>
+        <img src="model1.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
       </div>
       <div style="flex: 1; text-align: center;">
         <img src="rayepic2.jpg" alt="Previous Sailboat" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Our previous project Raye (18ft)</p>
       </div>
     </div>
   </div>
