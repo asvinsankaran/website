@@ -414,46 +414,47 @@
     </a>
   </div>
     <!-- Course Projects Section -->
-    <div class="project-container" style="flex-direction: column;">
-      <div class="project-text" style="padding-bottom: 0;">
-        <h3>Course Projects</h3>
-      </div>
+    <div class="course-projects-bg">
+      <div class="course-projects-wrapper">
+        <h2>Course Projects</h2>
     
-      <div class="course-projects">
-        <div class="course-card" onclick="togglePopup('popup1')">
-          <video autoplay muted loop playsinline>
-            <source src="chonky4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="course-text">
-            <h3>CHONKY</h3>
-            <p>In a small group, we designed, manufactured, and tested a fully autonomous robot to compete in the 2022 Engineering Physics Robot Summer Competition.</p>
+        <div class="course-projects">
+          <!-- Card 1 -->
+          <div class="course-card" onclick="togglePopup('popup1')">
+            <video autoplay muted loop playsinline>
+              <source src="chonky4.mp4" type="video/mp4" />
+            </video>
+            <div class="course-text">
+              <h3>CHONKY</h3>
+              <p>In a small group, we designed, manufactured, and tested a fully autonomous robot to compete in the 2022 Engineering Physics Robot Summer Competition.</p>
+            </div>
           </div>
-        </div>
     
-        <div class="course-card" onclick="togglePopup('popup2')">
-          <video autoplay muted loop playsinline>
-            <source src="353video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="course-text">
-            <h3>Computer Vision and Controls</h3>
-            <p>With only a camera stream fed through a ROS node, we used computer vision to control a virtual car around the course and read licence plates using a CNN.</p>
+          <!-- Card 2 -->
+          <div class="course-card" onclick="togglePopup('popup2')">
+            <video autoplay muted loop playsinline>
+              <source src="353video.mp4" type="video/mp4" />
+            </video>
+            <div class="course-text">
+              <h3>Computer Vision and Controls</h3>
+              <p>With only a camera stream fed through a ROS node, we used computer vision to control a virtual car around the course and read licence plates using a CNN.</p>
+            </div>
           </div>
-        </div>
     
-        <div class="course-card" onclick="togglePopup('popup3')">
-          <video autoplay muted loop playsinline>
-            <source src="carsteer.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="course-text">
-            <h3>Car Steering Mechanical Design</h3>
-            <p>Following Shigley's Mechanical Design textbook, I worked in a small group to redesign a car's steering actuation system without any electrical/motor aid.</p>
+          <!-- Card 3 -->
+          <div class="course-card" onclick="togglePopup('popup3')">
+            <video autoplay muted loop playsinline>
+              <source src="carsteer.mp4" type="video/mp4" />
+            </video>
+            <div class="course-text">
+              <h3>Car Steering Mechanical Design</h3>
+              <p>Following Shigley's Mechanical Design textbook, I worked in a small group to redesign a car's steering actuation system without any electrical/motor aid.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     
     <!-- Popups -->
     <div id="popup1" class="popup-overlay"><div class="popup"><span onclick="togglePopup('popup1')">&times;</span><h3>CHONKY</h3><p>[Full content goes here]</p></div></div>
