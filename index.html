@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UBC Sailbot – Asvin Sankaran</title>
+  <title>Asvin Sankaran Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -26,9 +26,9 @@
       margin: 0;
       font-size: 2rem;
       font-weight: 800;
-      border-left: 6px solid #535353;
-      padding-left: 1rem;
-      margin-left: 3rem;
+      border-left: 6px solid #535353; /* darker gray */
+      padding-left: 1rem;             /* increase spacing */
+      margin-left: 3rem;              /* push the entire h1 block right */
       line-height: 1.2;
     }
 
@@ -39,147 +39,525 @@
       font-size: 1rem;
     }
 
-    .section {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 2rem;
       max-width: 1100px;
-      margin: 2rem auto;
+      margin: auto;
+      background-color: #f4f4f4;
+    }
+
+    .image-section {
+      flex: 1 1 300px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      border-radius: 0px;
+      height: auto;
+    }
+
+    .text-section {
+      flex: 2 1 500px;
+      padding: 1rem;
+    }
+
+    .text-section h2 {
+      font-size: 5rem;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .text-section p {
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-top: 1rem;
+      color: #333;
+    }
+
+    .text-section a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .text-section a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .text-section h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    .project-card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+    
+    .project-container {
+      display: flex;
+      background-color: #eaeaea;
+      border-radius: 0;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    
+    .project-video {
+      width: 270px;               /* Looks like a phone screen */
+      height: 500px;              /* 9:16-ish */
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+      background-color: black;
+    }
+    
+    .horizontal-video {
+      width: 480px;
+      height: 270px; /* 16:9 aspect ratio */
+    }
+    
+    /* Shared video styling */
+    .project-video video {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+    }
+    
+    .project-text {
+      flex: 2 1 60%;
+      padding: 2rem 4rem;   /* ⬅️ 2rem top/bottom, 3rem left/right */
       background-color: #e4e4e4;
-      padding: 3rem 2rem;
+      color: #222;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.8;
+    }
+    
+    .project-text h3 {
+      font-size: 1.8rem;
+      margin: 0 0 0.2rem 0;  /* ⬅️ reduce space under title */
+      font-weight: 800;
+    }
+    
+    .project-text p:first-of-type {
+      margin-top: 0;
+    }
+    
+    .project-text .project-link {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .project-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    
+    .project-wrapper h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+    
+    .project-text h3 {
+      font-size: 1.8rem;
+      margin-top: 0;
+      font-weight: 800;
+    }
+    
+    .project-text .project-link {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-container.reverse {
+      flex-direction: row-reverse !important;
+    }
+    
+    .course-projects-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    
+    .course-projects-wrapper h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+    }
+    
+    .course-projects {
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .course-card {
+      width: 300px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: none;
+    }
+    
+    .course-card:hover {
+      transform: scale(1.02); /* Hover pop-out effect */
+    }
+    
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .course-card video {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .course-text {
+      padding: 1rem;
+      background-color: #fff;
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #333; /* keep this different if desired */
+    }
+    
+    .course-text h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+    
+    .course-text p {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.4;
+    }
+    
+    /* Popup styles */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .popup {
+      background: #fff;
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 8px;
+      position: relative;
+    }
+    
+    .popup span {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .course-projects-bg {
+      background-color: #e4e4e4;
+      padding: 3rem 0;
+    }
+    
+    .course-projects-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    
+    .course-projects-card {
+      background-color: #e4e4e4;
+      padding: 1rem 0 !important;
+      margin-top: 0 !important;
       border-radius: 0;
     }
 
-    .section h2 {
-      font-size: 2.2rem;
+    .project-wrapper:last-of-type {
+      margin-top: 0;  /* remove top space if inherited */
+      padding-top: 0.5rem; /* match other sections (adjust as needed) */
+    }
+
+    .project-wrapper + .project-wrapper {
+      margin-top: 0.5rem !important; /* same as other project-container vertical spacing */
+    }
+    
+    .course-projects-card > div {
+      padding: 1rem 2rem !important; /* reduces space inside grey box */
+    }
+    
+    .project-wrapper + .project-wrapper {
+      margin-top: 1rem !important; /* reduces space between sections */
+    }
+
+    .course-projects-inner {
+      padding: 1rem 2rem;
+    }
+
+    .course-projects-wrapper {
+      padding-top: 0rem !important;
+      padding-bottom: 1rem !important;
+      margin-top: 0 !important;
+    }
+    
+    .footer-spacing {
+      margin-top: 4rem; /* spacing above the line */
+    }
+    
+    hr {
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid #aaa;
+      width: 90%;
+    }
+    
+    .custom-footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f4f4;
+      line-height: 2rem;
+    }
+    
+    .footer-name {
       font-weight: 800;
-      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    
+    .dark-text {
+      color: #111; /* same dark as intro text */
+    }
+    
+    .footer-email {
+      font-weight: 500;
+      font-size: 1rem;
+      margin: 0;
+      color: #111;
+    }
+    
+    .footer-link a {
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #111;
+      letter-spacing: 0.05em;
+    }
+    
+    .footer-link a:hover {
+      text-decoration: underline;
     }
 
-    .section p, .section li {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #222;
-    }
 
-    .section ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .image-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .image-row img {
-      width: 100%;
-      max-width: 280px;
-      height: auto;
-      border-radius: 0px;
-    }
-
-    .caption {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      color: #444;
-      max-width: 280px;
-    }
-
-    .image-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
   </style>
 </head>
+
 <body>
 
-  <!-- Header -->
   <header>
     <h1>Asvin Sankaran<br>Portfolio</h1>
     <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
   </header>
 
-  <!-- Sailbot Section -->
-  <div class="section">
-    <div style="padding-left: 0rem;">
-      <h2>UBC Sailbot – Design Team</h2>
-      <p><a href="https://ubcsailbot.org" target="_blank" style="font-size: 0.9rem; color: #555;">ubcsailbot.org ›</a></p>
+  <div class="container">
+    <div class="image-section">
+      <img src="profile.png" alt="Asvin Sankaran">
     </div>
-    <div class="image-row">
-      <!-- Left: text + team photo -->
-      <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
-        <p>
-          I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate students focusing on the design, construction, and testing of fully autonomous sailboats. Our previous project (pictured) is an 18ft sailboat we created from scratch over many years. Currently, we are in the design phase of a new project, capable of using this robotics technology to collect oceanic and atmospheric data.
-        </p>
-        <img src="teampic.jpg" alt="UBC Sailbot Team Photo" style="width: 100%; max-width: 100%;">
-      </div>
-    
-      <!-- Right: video -->
-      <div style="flex: 1;">
-        <video autoplay muted loop playsinline style="max-width: 250px; height: auto; border-radius: 0px;">
-          <source src="rayepreview2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <div class="text-section">
+      <h2>Asvin<br>Sankaran</h2>
+      <p>I am a fifth-year Engineering Physics student at the University of British Columbia, with a passion for mechatronics engineering. I am interested in innovative technology and hope to work in fields that grow my knowledge. I enjoy getting my hands dirty, salvaging old printers or taking apart old electronics, to learn how they work.</p>
+      <p>Check out some of my favourite experiences/projects below!</p>
+      <p>Cheers,<br>Asvin S</p>
     </div>
-
-    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Captain</h3>
-    <p>I began this role in my second year, and have had the unique opportunity to make many improvements to our team's structure, organization, and project management in the past 2.5 years.</p>
-
-    <p>Some of my favorite accomplishments include:</p>
-    <ul>
-      <li>Revising our team's leadership organization and building formality and responsibility into the team structure</li>
-      <li>Spearheading a project management initiative by holding teams accountable to macro and micro-scale timelines</li>
-      <li>Scoping and defining the team and project’s 3 year plan</li>
-      <li>Teaching students about project management, leadership, and team-work</li>
-      <li>But also, teaching students about mechanical and electrical engineering</li>
-      <li>Managing large project budgets and dictating financial decisions, funding and grants</li>
-      <li>Creating presentation opportunities for students to develop their communication skills</li>
-    </ul>
-  
-    <!-- Image Trio with Captions -->
-    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
-      <div style="flex: 1; text-align: center;">
-        <img src="imdc2.jpg" alt="Conference" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Presenting our team at the International Marine Design Conference</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="plrspic2.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">A CAD model of our new project POLARIS</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="rayepic2.jpg" alt="Previous Sailboat" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Our previous project Raye, an 18ft autonomous sailboat</p>
-      </div>
-    </div>
-  
-    <!-- Mechanical Lead Section -->
-    <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 3rem;">Mechanical Lead</h2>
-    <p style="font-size: 1.05rem; line-height: 1.8;">
-      I was promoted to this role soon after my first year given the aptitude I had for the mechanical engineering on this project.
-      In my time as a mechanical lead, I led electrical integration projects, as well as initial rudder design.
-    </p>
-  
-    <p>Some of the projects I've led include:</p>
-    <ul style="font-size: 1.05rem; line-height: 1.8;">
-      <li>Statistical modelling of our boat’s theoretical solar panel generation</li>
-      <li>Analysis of our boat’s power budgeting comparing consumption to generation</li>
-      <li>Drive electrical design decisions based on power consumption</li>
-      <li>Initial design of our boat’s rudder blade</li>
-      <li>Fluid simulation and calculation for rudder lift/drag</li>
-    </ul>
   </div>
-  <div style="margin-top: 4rem;"></div>
-  <hr style="border: none; border-top: 1px solid #aaa; width: 90%; margin: auto;" />
-  <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: #f4f4f4; line-height: 2rem;">
-    <p style="font-weight: 800; font-size: 1.2rem; margin: 0;">Asvin Sankaran</p>
-    <p style="font-weight: 500; font-size: 1rem; margin: 0; color: #111;">asvinsankaran1@gmail.com</p>
-    <p style="font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">
-      <a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank" style="text-decoration: none; color: #111;">LinkedIn ›</a>
-    </p>
+
+  <div style="height: 4px; background-color: #282626; margin: 2rem auto; width: 20%;"></div>
+  <div class="project-wrapper">
+    <h2>Projects & Roles</h2>
+  
+  <a href="disc5axis.html" class="project-card">
+      <div class="project-container">
+        <div class="project-video">
+          <video autoplay muted loop playsinline>
+            <source src="5axis1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="project-text">
+          <h3>Custom 5 Axis 3D Printer - DISC Alloys</h3>
+          <p>
+            For the past year, I have been working at DISC Alloys on the development of a 5-Axis 3D printer for adaptation to the startup's industrial metal 3D printing technology. I began this project from scratch with lots of mechanical design in CAD before moving into manufacturing in the machine shop, assembly, and prototype testing. After 8 months of design and mechanical assembly, I completed the mechatronics fabrication and moved into firmware, software, and control algorithms using multivariable calculus.
+          </p>
+        </div>
+      </div>
+    </a>
+  
+    <a href="sailbot.html" class="project-card">
+      <div class="project-container reverse">
+        <div class="project-video">
+          <video autoplay muted loop playsinline>
+            <source src="rayepreview2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project-text">
+          <h3>Captain – UBC Sailbot</h3>
+          <p>
+            I am currently the Captain of UBC Sailbot, an engineering design team of ~70 undergraduate students focussing on the design, construction, and testing of fully autonomous sailboats.
+          </p>
+          <p>
+            For the past 3+ years, I've always spent more time working on Sailbot when I should have been studying for classes. This team provides a unique opportunity to lead some highly innovative challenges and very passionate students. And where I started off learning a lot about technical engineering, I now spend my time teaching younger students while focussing more on high-level project management and technical integration. 
+          </p>
+        </div>
+      </div>
+    </a>
+    
+    <a href="icpfusion.html" class="project-card">
+      <div class="project-container">
+        <div class="project-video horizontal-video">
+          <video autoplay muted loop playsinline>
+            <source src="plasma3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project-text">
+          <h3>Plasma Fusion Reactor Design - ENPH Capstone Project</h3>
+          <p>
+            In my senior year at UBC, I was working with the prestigious Berlinguette Lab at UBC to design and test a novel plasma fusion reactor.
+          </p>
+        </div>
+      </div>
+    </a>
+    
+    <a href="jarvis.html" class="project-card">
+      <div class="project-container reverse">
+        <div class="project-video horizontal-video">
+          <video autoplay muted loop playsinline>
+            <source src="j2frames.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="project-text">
+          <h3>JARVIS - Personal Project</h3>
+          <p>
+            I'm currently working on a DIY sky-cam-like robot suspended by 4 wires. Initially, I was working through the 2D control algorithm using computer vision on MATLAB (video). After which, I re-designed the hardware and am now improving the 3D controls algorithm, which has proven incredibly difficult.
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+    <!-- Course Projects Section -->
+    <div class="project-wrapper course-projects-wrapper">
+      <div class="course-projects-card">
+        <div class="course-projects-inner">
+          <h2>Course Projects</h2>
+      
+          <div class="course-projects">
+            <div class="course-card" onclick="togglePopup('popup1')">
+              <video autoplay muted loop playsinline>
+                <source src="chonky4.mp4" type="video/mp4" />
+              </video>
+              <div class="course-text">
+                <h3>CHONKY</h3>
+                <p>In a small group, we designed, manufactured, and tested a fully autonomous robot to compete in the 2022 Engineering Physics Robot Summer Competition.</p>
+              </div>
+            </div>
+      
+            <div class="course-card" onclick="togglePopup('popup2')">
+              <video autoplay muted loop playsinline>
+                <source src="353video.mp4" type="video/mp4" />
+              </video>
+              <div class="course-text">
+                <h3>Computer Vision and Controls</h3>
+                <p>With only a camera stream fed through a ROS node, we used computer vision to control a virtual car around the course and read licence plates using a CNN.</p>
+              </div>
+            </div>
+      
+            <div class="course-card" onclick="togglePopup('popup3')">
+              <video autoplay muted loop playsinline>
+                <source src="carsteer.mp4" type="video/mp4" />
+              </video>
+              <div class="course-text">
+                <h3>Car Steering Mechanical Design</h3>
+                <p>Following the Shigley's Mechanical Design textbook, I worked in a small group to redesign a car's steering actuation system without any electrical/motor aid.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- Popups -->
+    <div id="popup1" class="popup-overlay"><div class="popup"><span onclick="togglePopup('popup1')">&times;</span><h3>CHONKY</h3><p>[Full content goes here]</p></div></div>
+    <div id="popup2" class="popup-overlay"><div class="popup"><span onclick="togglePopup('popup2')">&times;</span><h3>Computer Vision and Controls</h3><p>[Full content goes here]</p></div></div>
+    <div id="popup3" class="popup-overlay"><div class="popup"><span onclick="togglePopup('popup3')">&times;</span><h3>Car Steering Mechanical Design</h3><p>[Full content goes here]</p></div></div>
+
+  <script>
+  function togglePopup(id) {
+    const el = document.getElementById(id);
+    if (el.style.display === "flex") {
+      el.style.display = "none";
+    } else {
+      el.style.display = "flex";
+      el.style.justifyContent = "center";
+      el.style.alignItems = "center";
+    }
+  }
+  </script>
+  
+  <div class="footer-spacing"></div>
+  <hr>
+  <footer class="custom-footer">
+    <p class="footer-name"><span class="dark-text">Asvin Sankaran</span></p>
+    <p class="footer-email">asvinsankaran1@gmail.com</p>
+    <p class="footer-link"><a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank">LinkedIn ›</a></p>
   </footer>
+
 
 </body>
 </html>
