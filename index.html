@@ -306,8 +306,7 @@
     
     .course-projects-card {
       background-color: #e4e4e4;
-      padding: 0;
-      padding-top: 1rem !important;
+      padding: 1rem 0 !important;
       margin-top: 0 !important;
       border-radius: 0;
     }
@@ -319,6 +318,14 @@
 
     .project-wrapper + .project-wrapper {
       margin-top: 0.5rem !important; /* same as other project-container vertical spacing */
+    }
+    
+    .course-projects-card > div {
+      padding: 1rem 2rem !important; /* reduces space inside grey box */
+    }
+    
+    .project-wrapper + .project-wrapper {
+      margin-top: 1rem !important; /* reduces space between sections */
     }
 
   </style>
