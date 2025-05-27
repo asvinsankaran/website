@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UBC Sailbot – Asvin Sankaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 800;
+      border-left: 6px solid #535353;
+      padding-left: 1rem;
+      margin-left: 3rem;
+      line-height: 1.2;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background-color: #e4e4e4;
+      padding: 3rem 2rem;
+      border-radius: 0;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .section p, .section li {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #222;
+    }
+
+    .section ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .image-row img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 0px;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #444;
+      max-width: 280px;
+    }
+
+    .image-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Asvin Sankaran<br>Portfolio</h1>
+    <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
+  </header>
+
+  <!-- Sailbot Section -->
+  <div class="section">
+    <div style="padding-left: 0rem;">
+      <h2>JARVIS - Personal Project</h2>
+      <p><a href="https://github.com/asvinsankaran/JARVIS_Personal_Project" target="_blank" style="font-size: 0.9rem; color: #555;">Github ›</a></p>
+    </div>
+    <div class="image-row">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
+        <p>
+          Given my passion for engineering, I enjoy pursuing personal projects in my free time such as JARVIS, a sky-cam-like robot for my room, capable of navigating the space and interacting with users. As a module suspended by 4 winch-controlled ropes, I created detailed CAD designs on OnShape for 3D printing winch blocks, motor adaptors, and pulley joints. I then designed electrical circuits for microcontroller-to-motor communication with an Arduino MEGA, and controls firmware in C++. Furthermore, I am using OpenCV in MATLAB for computer vision, and motor encoders for triangulation (quadrilateration) using a gradient descent algorithm in C++. I also use vector calculus for smooth movement in 3D space, as well as a PID layer for motor PWM control. I hope to soon increase sophistication by implementing RF communication, SIFT object detection, end-effector manipulation, and more.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 3 - Improving Reliability and Attempting 3D Control</h3>
+    <p>I began this role in my second year, and have had the unique opportunity to make many improvements to our team's structure, organization, and project management in the past 2.5 years.</p>
+
+    <p>Some of my favorite accomplishments include:</p>
+    <ul>
+      <li>Revising our team's leadership organization and building formality and responsibility into the team structure</li>
+      <li>Spearheading a project management initiative by holding teams accountable to macro and micro-scale timelines</li>
+      <li>Scoping and defining the team and project’s 3 year plan</li>
+      <li>Teaching students about project management, leadership, and team-work</li>
+      <li>But also, teaching students about mechanical and electrical engineering</li>
+      <li>Managing large project budgets and dictating financial decisions, funding and grants</li>
+      <li>Creating presentation opportunities for students to develop their communication skills</li>
+    </ul>
+  
+    <!-- Image Trio with Captions -->
+    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
+      <div style="flex: 1; text-align: center;">
+        <img src="imdc2.jpg" alt="Conference" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">Presenting at the International Marine Design Conference</p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <img src="plrspic2.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">A model of our new project POLARIS</p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <img src="rayepic2.jpg" alt="Previous Sailboat" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">Our previous project Raye (18ft)</p>
+      </div>
+    </div>
+  
+    <!-- Mechanical Lead Section -->
+    <h2 style="font-size: 1.6rem; font-weight: 800; margin-top: 3rem;">Mechanical Lead</h2>
+    <p style="font-size: 1.05rem; line-height: 1.8;">
+      I was promoted to this role soon after my first year given the aptitude I had for the mechanical engineering on this project.
+      In my time as a mechanical lead, I led electrical integration projects, as well as initial rudder design.
+    </p>
+  
+    <p>Some of the projects I've led include:</p>
+    <ul style="font-size: 1.05rem; line-height: 1.8;">
+      <li>Statistical modelling of our boat’s theoretical solar panel generation</li>
+      <li>Analysis of our boat’s power budgeting comparing consumption to generation</li>
+      <li>Drive electrical design decisions based on power consumption</li>
+      <li>Initial design of our boat’s rudder blade</li>
+      <li>Fluid simulation and calculation for rudder lift/drag</li>
+    </ul>
+  </div>
+  <div style="margin-top: 4rem;"></div>
+  <hr style="border: none; border-top: 1px solid #aaa; width: 90%; margin: auto;" />
+  <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: #f4f4f4; line-height: 2rem;">
+    <p style="font-weight: 800; font-size: 1.2rem; margin: 0;">Asvin Sankaran</p>
+    <p style="font-weight: 500; font-size: 1rem; margin: 0; color: #111;">asvinsankaran1@gmail.com</p>
+    <p style="font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">
+      <a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank" style="text-decoration: none; color: #111;">LinkedIn ›</a>
+    </p>
+  </footer>
+
+</body>
+</html>
