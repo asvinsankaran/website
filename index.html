@@ -342,37 +342,54 @@
       margin-top: 0 !important;
     }
     
+    .footer-spacing {
+      margin-top: 4rem; /* spacing above the line */
+    }
+    
+    hr {
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid #aaa;
+      width: 90%;
+    }
+    
     .custom-footer {
-        text-align: center;
-        padding: 2rem 1rem;
-        font-family: 'Inter', sans-serif;
-        background-color: #f4f4f4;
-      }
-      
-      .footer-name {
-        font-weight: 800;
-        font-size: 1.2rem;
-        margin: 0.2rem 0;
-      }
-      
-      .footer-email {
-        font-weight: 500;
-        font-size: 1rem;
-        margin: 0.2rem 0;
-        color: #111;
-      }
-      
-      .footer-link a {
-        font-weight: 600;
-        font-size: 1rem;
-        text-decoration: none;
-        color: #111;
-        letter-spacing: 0.05em;
-      }
-      
-      .footer-link a:hover {
-        text-decoration: underline;
-      }
+      text-align: center;
+      padding: 2.5rem 1rem;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f4f4;
+      line-height: 2rem;
+    }
+    
+    .footer-name {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    
+    .dark-text {
+      color: #111; /* same dark as intro text */
+    }
+    
+    .footer-email {
+      font-weight: 500;
+      font-size: 1rem;
+      margin: 0;
+      color: #111;
+    }
+    
+    .footer-link a {
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #111;
+      letter-spacing: 0.05em;
+    }
+    
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+
 
   </style>
 </head>
@@ -533,12 +550,14 @@
   }
   </script>
   
+  <div class="footer-spacing"></div>
   <hr>
   <footer class="custom-footer">
-    <p class="footer-name">Asvin Sankaran</p>
+    <p class="footer-name"><span class="dark-text">Asvin</span> Sankaran</p>
     <p class="footer-email">asvinsankaran1@gmail.com</p>
     <p class="footer-link"><a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank">LinkedIn ›</a></p>
   </footer>
+
 
 </body>
 </html>
