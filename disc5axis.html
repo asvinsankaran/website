@@ -93,7 +93,7 @@
     }
     .image-container {
       flex: 1;
-      max-width: 350px;
+      min-width: 0; /* Prevents overflow */
     }
 
     .image-container .caption {
@@ -220,16 +220,29 @@
 
     
     <div class="image-row">
-      <div class="image-container" style="flex: 1;">
-        <img src="fullextrassy.jpg" alt="Event 1" style="width: 100%; height: auto;" />
+      <div class="image-container">
+        <img src="fullextrassy.jpg" alt="Event 1" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
           <div class="description">Completed Onshape (CAD) assembly</div>
         </div>
       </div>
-    
-      <div class="image-container" style="flex: 1;">
-        <img src="print1.jpg" alt="Event 2" style="width: 100%; height: auto;" />
+  
+      <div class="image-container">
+        <div style="width: 100%; aspect-ratio: 14 / 9; overflow: hidden; border-radius: 0;">
+          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="print2timelapse.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">
+          <div class="date"><strong>October 2024</strong></div>
+          <div class="description">Manufacturing plates on the CNC using Mastercam controls</div>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="print1.jpg" alt="Event 2" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
           <div class="description">Consolidated BOM to track ordering and shipping</div>
@@ -237,24 +250,8 @@
       </div>
     </div>
 
-    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
-      <!-- Left Video -->
-      <img src="fullextrassy.jpg" alt="Event 2" style="width: 100%; height: auto;" />
-        <div class="caption">
-          <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Consolidated BOM to track ordering and shipping</div>
-        </div>
-      </div>
-    
-      <!-- Right Video -->
-      <div style="flex: 1; overflow: hidden; height: 320px;">
-        <img src="print1.jpg" alt="Event 2" style="width: 100%; height: auto;" />
-        <div class="caption">
-          <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Consolidated BOM to track ordering and shipping</div>
-        </div>
-    </div>
 
+    
     
 
 
