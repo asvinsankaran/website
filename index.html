@@ -390,6 +390,20 @@
       text-decoration: underline;
     }
 
+    .click-hint {
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      font-size: 0.85rem;
+      color: #666;
+      font-style: italic;
+      pointer-events: none;
+    }
+    
+    .project-container {
+      position: relative; /* Ensure child absolute elements stay within */
+    }
+
 
   </style>
 </head>
@@ -431,6 +445,7 @@
           <p>
             For the past year, I have been working at DISC Alloys on the development of a 5-Axis 3D printer for adaptation to the startup's industrial metal 3D printing technology. I began this project from scratch with lots of mechanical design in CAD before moving into manufacturing in the machine shop, assembly, and prototype testing. After 8 months of design and mechanical assembly, I completed the mechatronics fabrication and moved into firmware, software, and control algorithms using multivariable calculus.
           </p>
+          <div class="click-hint">Click ↓</div>
         </div>
       </div>
     </a>
