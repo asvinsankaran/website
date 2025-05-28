@@ -123,6 +123,26 @@
       <li>Implemented a gradient descent algorithm to calculate the most likely position of intersection of the wires/spheres for triangulation (quadrilateration)</li>
     </ul>
 
+    <!-- Video Row -->
+    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
+      <!-- Left Video -->
+      <div style="flex: 1; overflow: hidden; height: 320px;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="3dctrl1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    
+      <!-- Right Video -->
+      <div style="flex: 1; overflow: hidden; height: 320px;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="3dctrl2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+
     <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 2 - SpiderCam Design and 2D Testing</h3>
     <p>Inspired by SpiderCams - the cameras used in stadiums to record football games - I realized that this is a much simpler hardware design to implement.</p>
     <p>I started with the 2D case using 2 winches, an Arduino UNO, and many 3D printed iterations. I used computer vision for positional encoding, where I used a red, green, and blue LED on the module to make triangulation easier by isolating the RGB peaks. From the location, I could calculate a setpoint, path, PID, and PWM duty cycle.</p>
