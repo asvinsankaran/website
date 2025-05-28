@@ -151,20 +151,26 @@
       </video>
     </div>
 
-    <!-- Left: Text Block -->
-    <div style="flex: 1; font-size: 1.05rem; line-height: 1.8; color: #111;">
-      <p>
-        The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to find the respective PWM speed of each motor. 
-      </p>
+    <div style="display: flex; justify-content: space-between; gap: 2rem; margin-top: 3rem; background-color: #e4e4e4; padding: 2rem; margin-left: 0">
+      <!-- Left: Text Block -->
+      <div style="flex: 1; font-size: 1.05rem; line-height: 1.8; color: #111;">
+        <p>
+          I used MATLAB to calculate motor controls given camera data using OpenCV. The impressive challenge in this video is the robot's ability to move horizontally, which showcases the non-linear vector calculus used to find the respective speed of each motor.
+        </p>
+        <p>
+          With this MVP, I proved that this control algorithm works, despite lots of frustrating math and detailed design. And I quickly realized how much of a software challenge this was going to be.
+        </p>
+      </div>
+    
+      <!-- Right: Cropped Video -->
+      <div style="flex: 1; height: 250px; overflow: hidden;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+          <source src="j2frames.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
-  
-    <!-- Right: Cropped Video -->
-    <div style="flex: 1; height: 300px; overflow: hidden;">
-      <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
-        <source src="horizontal.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+
 
     <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
     <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
