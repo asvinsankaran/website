@@ -91,6 +91,15 @@
       flex-direction: column;
       align-items: center;
     }
+    .image-container {
+      flex: 1;
+      max-width: 280px;
+    }
+
+    .image-container .caption {
+      text-align: left;
+    }
+
   </style>
 </head>
 <body>
@@ -113,6 +122,33 @@
         </p>
       </div>
     </div>
+    <div class="image-row">
+    <div class="image-container">
+      <img src="image1.jpg" alt="Event 1" />
+      <div class="caption">
+        <div class="date">May 2024</div>
+        <div class="description">Presented at International Robotics Conference.</div>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="image2.jpg" alt="Event 2" />
+      <div class="caption">
+        <div class="date">Jan 2023</div>
+        <div class="description">Built and tested 3D printed motor housing.</div>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="image3.jpg" alt="Event 3" />
+      <div class="caption">
+        <div class="date">Aug 2022</div>
+        <div class="description">Implemented PID control algorithm in C++.</div>
+      </div>
+    </div>
+  </div>
+
+    
 
     <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 3 - Improving Reliability and Attempting 3D Control</h3>
     <p>I made a lot of changes to the hardware and controls of the robot in this revision:</p>
@@ -142,61 +178,6 @@
       </div>
     </div>
 
-
-    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 2 - SpiderCam Design and 2D Testing</h3>
-    <p>Inspired by SpiderCams - the cameras used in stadiums to record football games - I realized that this is a much simpler hardware design to implement.</p>
-    <p>I started with the 2D case using 2 winches, an Arduino UNO, and many 3D printed iterations. I used computer vision for positional encoding, where I used a red, green, and blue LED on the module to make triangulation easier by isolating the RGB peaks. From the location, I could calculate a setpoint, path, PID, and PWM duty cycle.</p>
-    
-    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
-      <div style="flex: 1; text-align: center;">
-        <img src="spidercam.png" alt="Conference" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">SpiderCam camera</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="3dprint.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">3D printed rotating winches</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <div style="height: 200px; overflow: hidden; width: 100%; max-width: 300px;">
-          <video autoplay muted loop playsinline style="width: 100%; height: 300px; margin-top: -50px; object-fit: cover; border-radius: 0px;">
-            <source src="rev2jarvis.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <p style="font-size: 0.95rem;">Crude PID with lots of overshooting</p>
-      </div>
-    </div>
-    <div style="width: 100%; max-width: 100%; height: 370px; overflow: hidden; margin: 2rem 0;">
-      <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-        <source src="j2frames2.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-
-    <div style="display: flex; justify-content: space-between; gap: 2rem; margin-top: 2rem; background-color: #e4e4e4; padding: 1rem;">
-      <!-- Left: Text Block -->
-      <div style="flex: 1; font-size: 1.05rem; line-height: 1.8; color: #111;">
-        <p>
-          The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to calculate the respective PWM signal for each motor from computer vision triangulation.         </p>
-      </div>
-    
-      <!-- Right: Cropped Video -->
-      <div style="flex: 1; height: 250px; overflow: hidden;">
-        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
-          <source src="horizontal.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-
-
-    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
-    <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
-
-    <div style="margin-top: 2rem; text-align: center;">
-      <img src="gantry1.png" alt="Full CAD Diagram" style="width: 100%; max-width: 100%;" />
-    </div>
-    
     <!-- Image Trio with Captions -->
     <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
       <div style="flex: 1; text-align: center;">
