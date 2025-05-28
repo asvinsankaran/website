@@ -158,7 +158,7 @@
         <img src="shaftmill.jpg" alt="Event 1" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Completed Onshape (CAD) assembly</div>
+          <div class="description">Custom actuation shaft informed by shaft calculations</div>
         </div>
       </div>
   
@@ -166,7 +166,7 @@
         <img src="5axiscomputer.jpg" alt="Event 2" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Consolidated BOM to track ordering and shipping</div>
+          <div class="description">3D printer computer (Duet3D) with RPI interface</div>
         </div>
       </div>
   
@@ -179,7 +179,7 @@
         </div>
         <div class="caption">
           <div class="date"><strong>October 2024</strong></div>
-          <div class="description">Manufacturing plates on the CNC using Mastercam controls</div>
+          <div class="description">Motor communication and control testing</div>
         </div>
       </div>
     </div>
@@ -191,7 +191,7 @@
         <img src="frameassy.jpg" alt="Event 1" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Completed Onshape (CAD) assembly</div>
+          <div class="description">Completed assembly of the printer 8020 frame</div>
         </div>
       </div>
   
@@ -199,7 +199,7 @@
         <img src="vaxisassy.jpg" alt="Event 2" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Consolidated BOM to track ordering and shipping</div>
+          <div class="description">Actuation assembly for the V-axis table after machining</div>
         </div>
       </div>
   
@@ -212,7 +212,7 @@
         </div>
         <div class="caption">
           <div class="date"><strong>October 2024</strong></div>
-          <div class="description">Manufacturing plates on the CNC using Mastercam controls</div>
+          <div class="description">Slowly moving the X-axis gantry</div>
         </div>
       </div>
     </div>
@@ -224,7 +224,7 @@
         <img src="fullextrassy.jpg" alt="Event 1" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Completed Onshape (CAD) assembly</div>
+          <div class="description">Near-complete assembly of the full printer</div>
         </div>
       </div>
   
@@ -237,7 +237,7 @@
         </div>
         <div class="caption">
           <div class="date"><strong>October 2024</strong></div>
-          <div class="description">Manufacturing plates on the CNC using Mastercam controls</div>
+          <div class="description">Timelapse of a first print using two axes, before fine-tune calibration</div>
         </div>
       </div>
 
@@ -245,7 +245,7 @@
         <img src="print1.jpg" alt="Event 2" />
         <div class="caption">
           <div class="date"><strong>September 2024</strong></div>
-          <div class="description">Consolidated BOM to track ordering and shipping</div>
+          <div class="description">First test print with clear indications of overextrusion and vibration</div>
         </div>
       </div>
     </div>
@@ -259,7 +259,7 @@
     <div style="margin-top: 0rem;">
       <div style="font-size: 0.95rem; color: #444;">
         <strong>October 2024</strong><br />
-        Manufacturing plates on the CNC using Mastercam controls
+        Engaging the U-axis while printing a cylinder by writing G-code from a custom math-based Python file
       </div>
     </div>
     
@@ -275,7 +275,7 @@
         </div>
         <div class="caption">
           <div class="date"><strong>October 2024</strong></div>
-          <div class="description">Demonstration of motion testing with firmware update</div>
+          <div class="description">Printing a star shape based on Radius=x=r*cos(6*theta) for 6 points on the star</div>
         </div>
       </div>
     
@@ -287,65 +287,11 @@
         </div>
         <div class="caption">
           <div class="date"><strong>October 2024</strong></div>
-          <div class="description">CAD visualization of cable paths and pulleys</div>
+          <div class="description">Resulting print with areas of underextrusion</div>
         </div>
       </div>
     </div>
 
-
-
-
-
-
-
-    
-    
-
-
-    
-    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 3 - Improving Reliability and Attempting 3D Control</h3>
-    <p>I made a lot of changes to the hardware and controls of the robot in this revision:</p>
-    <ul>
-      <li>Use encoded motors to improve accuracy and decrease latency from the computer vision algorithm</li>
-      <li>Upgraded from an Arduino to an ELEGOO for more interrupt and PWM pins</li>
-      <li>Spent much time researching and testing different 3D triangulation algorithms as there are 3 spatial dimentions (XYZ) and 4 motors (overconstrained)</li>
-      <li>Implemented a gradient descent algorithm to calculate the most likely position of intersection of the wires/spheres for triangulation (quadrilateration)</li>
-    </ul>
-
-    <!-- Video Row -->
-    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
-      <!-- Left Video -->
-      <div style="flex: 1; overflow: hidden; height: 320px;">
-        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-          <source src="3dctrl1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    
-      <!-- Right Video -->
-      <div style="flex: 1; overflow: hidden; height: 320px;">
-        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
-          <source src="3dctrl2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-
-    <!-- Image Trio with Captions -->
-    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
-      <div style="flex: 1; text-align: center;">
-        <img src="model1cad.png" alt="Conference" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">CAD model of the Z-axis control</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="model1.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
-        <p style="font-size: 0.95rem;">Physical prototype for testing in one axis</p>
-      </div>
-      <div style="flex: 1; text-align: center;">
-        <img src="rayepic2.jpg" alt="Previous Sailboat" style="width: 100%; max-width: 300px;" />
-      </div>
-    </div>
-  </div>
   <div style="margin-top: 4rem;"></div>
   <hr style="border: none; border-top: 1px solid #aaa; width: 90%; margin: auto;" />
   <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: #f4f4f4; line-height: 2rem;">
