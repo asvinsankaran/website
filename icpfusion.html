@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ICP Fusion – Asvin Sankaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 800;
+      border-left: 6px solid #535353;
+      padding-left: 1rem;
+      margin-left: 3rem;
+      line-height: 1.2;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background-color: #e4e4e4;
+      padding: 3rem 2rem;
+      border-radius: 0;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .section p, .section li {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #222;
+    }
+
+    .section ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .image-row img {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 0px;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #444;
+      max-width: 280px;
+    }
+
+    .image-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image-container {
+      flex: 1;
+      min-width: 0; /* Prevents overflow */
+    }
+
+    .image-container .caption {
+      text-align: left;
+    }
+
+    .image-container video {
+      max-width: 100%;
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Asvin Sankaran<br>Portfolio</h1>
+    <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
+  </header>
+
+  <div class="section">
+    <div style="padding-left: 0rem;">
+      <h2>5 Axis 3D Printer - D.I. Self Composite Alloys</h2>
+      <p><a href="https://www.diselfcompositealloys.com/" target="_blank" style="font-size: 0.9rem; color: #555;">DISC Alloys ›</a></p>
+    </div>
+    <div class="image-row">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
+        <p>
+          In an ambitious 1 year capstone, we aimed to fuse ions together using plasma, a high voltage source, and complex nuclaear physics. In this project, we:
+          <ul>
+            <li>Designed, manufactured, and tested a large -30kV pulsing source to ignite the nuclear target</li>
+            <li>Manufactured a safety chamber for housing the plasma reactor</li>
+            <li>Iteratively tested the experiement by analyzing data to debug hardware issues</li>
+            <li>Created an RPI controls and data logging system for managing the experiment</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+    
+    <div class="image-row">
+      <div class="image-container">
+        <img src="5axiscad.png" alt="Event 1" />
+        <div class="caption">
+          <div class="date"><strong>July 2024</strong></div>
+          <div class="description">Completed Onshape (CAD) assembly</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <img src="5axisbom2.png" alt="Event 2" />
+        <div class="caption">
+          <div class="date"><strong>August 2024</strong></div>
+          <div class="description">Consolidated BOM to track ordering and shipping</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <img src="cncing.jpg" alt="Event 3" />
+        <div class="caption">
+          <div class="date"><strong>August 2024</strong></div>
+          <div class="description">Manufacturing plates on the CNC using Mastercam controls</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="image-row">
+      <div class="image-container">
+        <img src="shaftmill.jpg" alt="Event 1" />
+        <div class="caption">
+          <div class="date"><strong>September 2024</strong></div>
+          <div class="description">Custom actuation shaft informed by shaft calculations</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <img src="5axiscomputer.jpg" alt="Event 2" />
+        <div class="caption">
+          <div class="date"><strong>October 2024</strong></div>
+          <div class="description">3D printer computer (Duet3D) with RPI interface</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <div style="width: 350px; height: 500px; overflow: hidden; border-radius: 0;">
+          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="motortesting.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">
+          <div class="date"><strong>October 2024</strong></div>
+          <div class="description">Motor communication and control testing</div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="image-row">
+      <div class="image-container">
+        <img src="frameassy.jpg" alt="Event 1" />
+        <div class="caption">
+          <div class="date"><strong>November 2024</strong></div>
+          <div class="description">Completed assembly of the printer 8020 frame</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <img src="vaxisassy.jpg" alt="Event 2" />
+        <div class="caption">
+          <div class="date"><strong>November 2024</strong></div>
+          <div class="description">Actuation assembly for the V-axis table after machining</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <div style="width: 100%; aspect-ratio: 14 / 9; overflow: hidden; border-radius: 0;">
+          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="xaxistesting2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">
+          <div class="date"><strong>December 2024</strong></div>
+          <div class="description">Slowly moving the X-axis gantry</div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="image-row">
+      <div class="image-container">
+        <img src="fullextrassy.jpg" alt="Event 1" />
+        <div class="caption">
+          <div class="date"><strong>January 2025</strong></div>
+          <div class="description">Near-complete assembly of the full printer</div>
+        </div>
+      </div>
+  
+      <div class="image-container">
+        <div style="width: 100%; aspect-ratio: 14 / 9; overflow: hidden; border-radius: 0;">
+          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="print2timelapse.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">
+          <div class="date"><strong>January 2025</strong></div>
+          <div class="description">Timelapse of a first print using two axes, before fine-tune calibration</div>
+        </div>
+      </div>
+
+      <div class="image-container">
+        <img src="print1.jpg" alt="Event 2" />
+        <div class="caption">
+          <div class="date"><strong>January 2025</strong></div>
+          <div class="description">First test print with clear indications of overextrusion and vibration</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 100%; margin: 0.5rem 0;"> <!-- margin was 2 -->
+      <video autoplay muted loop playsinline style="width: 100%; height: auto; display: block;">
+        <source src="print3uaxiswide.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div style="margin-top: 0rem;">
+      <div style="font-size: 0.95rem; color: #444;">
+        <strong>February 2025</strong><br />
+        Testing the U-axis by printing a curved cylinder from writing a custom Python script for compiling G-code
+      </div>
+    </div>
+    
+    <div class="image-row" style="width: 100%; gap: 1rem; align-items: stretch;">
+      <!-- Left: Video -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
+          <video autoplay muted loop playsinline
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+            <source src="print4starvid.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="caption">
+          <div class="date"><strong>March 2025</strong></div>
+          <div class="description">Printing a star shape based on Radius=x=r*cos(6*theta) for 6 points on the star</div>
+        </div>
+      </div>
+    
+      <!-- Right: Cropped image -->
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
+          <img src="print4star.jpg" alt="CAD Pulleys"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div class="caption">
+          <div class="date"><strong>March 2025</strong></div>
+          <div class="description">Resulting print with areas of underextrusion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 4rem;"></div>
+  <hr style="border: none; border-top: 1px solid #aaa; width: 90%; margin: auto;" />
+  <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: #f4f4f4; line-height: 2rem;">
+    <p style="font-weight: 800; font-size: 1.2rem; margin: 0;">Asvin Sankaran</p>
+    <p style="font-weight: 500; font-size: 1rem; margin: 0; color: #111;">asvinsankaran1@gmail.com</p>
+    <p style="font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">
+      <a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank" style="text-decoration: none; color: #111;">LinkedIn ›</a>
+    </p>
+  </footer>
+</body>
+</html>
