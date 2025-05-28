@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JARVIS – Asvin Sankaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 800;
+      border-left: 6px solid #535353;
+      padding-left: 1rem;
+      margin-left: 3rem;
+      line-height: 1.2;
+    }
+
+    header a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background-color: #e4e4e4;
+      padding: 3rem 2rem;
+      border-radius: 0;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .section p, .section li {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #222;
+    }
+
+    .section ul {
+      padding-left: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .image-row img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 0px;
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #444;
+      max-width: 280px;
+    }
+
+    .image-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Asvin Sankaran<br>Portfolio</h1>
+    <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
+  </header>
+
+  <div class="section">
+    <div style="padding-left: 0rem;">
+      <h2>JARVIS - Personal Project</h2>
+      <p><a href="https://github.com/asvinsankaran/JARVIS_Personal_Project" target="_blank" style="font-size: 0.9rem; color: #555;">Github ›</a></p>
+    </div>
+    <div class="image-row">
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
+        <p>
+          Given my passion for engineering, I enjoy pursuing personal projects in my free time such as JARVIS, a sky-cam-like robot for my room, capable of navigating the space and interacting with users. As a module suspended by 4 winch-controlled ropes, I created detailed CAD designs on OnShape for 3D printing winch blocks, motor adaptors, and pulley joints. I then designed electrical circuits for microcontroller-to-motor communication with an Arduino MEGA, and controls firmware in C++. Furthermore, I am using OpenCV in MATLAB for computer vision, and motor encoders for triangulation (quadrilateration) using a gradient descent algorithm in C++. I also use vector calculus for smooth movement in 3D space, as well as a PID layer for motor PWM control. I hope to soon increase sophistication by implementing RF communication, SIFT object detection, end-effector manipulation, and more.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 3 - Improving Reliability and Attempting 3D Control</h3>
+    <p>I made a lot of changes to the hardware and controls of the robot in this revision:</p>
+    <ul>
+      <li>Use encoded motors to improve accuracy and decrease latency from the computer vision algorithm</li>
+      <li>Upgraded from an Arduino to an ELEGOO for more interrupt and PWM pins</li>
+      <li>Spent much time researching and testing different 3D triangulation algorithms as there are 3 spatial dimentions (XYZ) and 4 motors (overconstrained)</li>
+      <li>Implemented a gradient descent algorithm to calculate the most likely position of intersection of the wires/spheres for triangulation (quadrilateration)</li>
+    </ul>
+
+    <!-- Video Row -->
+    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
+      <!-- Left Video -->
+      <div style="flex: 1; overflow: hidden; height: 320px;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="3dctrl1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    
+      <!-- Right Video -->
+      <div style="flex: 1; overflow: hidden; height: 320px;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+          <source src="3dctrl2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 2 - SpiderCam Design and 2D Testing</h3>
+    <p>Inspired by SpiderCams - the cameras used in stadiums to record football games - I realized that this is a much simpler hardware design to implement.</p>
+    <p>I started with the 2D case using 2 winches, an Arduino UNO, and many 3D printed iterations. I used computer vision for positional encoding, where I used a red, green, and blue LED on the module to make triangulation easier by isolating the RGB peaks. From the location, I could calculate a setpoint, path, PID, and PWM duty cycle.</p>
+    
+    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
+      <div style="flex: 1; text-align: center;">
+        <img src="spidercam.png" alt="Conference" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">SpiderCam camera</p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <img src="3dprint.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">3D printed rotating winches</p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <div style="height: 200px; overflow: hidden; width: 100%; max-width: 300px;">
+          <video autoplay muted loop playsinline style="width: 100%; height: 300px; margin-top: -50px; object-fit: cover; border-radius: 0px;">
+            <source src="rev2jarvis.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p style="font-size: 0.95rem;">Crude PID with lots of overshooting</p>
+      </div>
+    </div>
+    <div style="width: 100%; max-width: 100%; height: 370px; overflow: hidden; margin: 2rem 0;">
+      <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        <source src="j2frames2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; gap: 2rem; margin-top: 2rem; background-color: #e4e4e4; padding: 1rem;">
+      <!-- Left: Text Block -->
+      <div style="flex: 1; font-size: 1.05rem; line-height: 1.8; color: #111;">
+        <p>
+          The culmination of this testing is in the algorithm's ability to move the module horizontally (video). This showcases the non-linear vector calculus used to calculate the respective PWM signal for each motor from computer vision triangulation.         </p>
+      </div>
+    
+      <!-- Right: Cropped Video -->
+      <div style="flex: 1; height: 250px; overflow: hidden;">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+          <source src="horizontal.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+
+    <h3 style="margin-top: 3rem; font-size: 1.5rem;">Revision 1 - Cartesian XYZ Design and Prototyping</h3>
+    <p>I started with a 3D printer inspired cartesian model using ropes, pulleys, and winches to create a deterministically controlled robot. In analyzing this design, I realized that it introduces many issues in electrical integration, error propagation, and unrealistic assumptions like ropes that don't slip, don't stretch, and have minimal backlash. </p>
+
+    <div style="margin-top: 2rem; text-align: center;">
+      <img src="gantry1.png" alt="Full CAD Diagram" style="width: 100%; max-width: 100%;" />
+    </div>
+    
+    <!-- Image Trio with Captions -->
+    <div style="display: flex; justify-content: space-between; gap: 1rem; margin: 2rem 0;">
+      <div style="flex: 1; text-align: center;">
+        <img src="model1cad.png" alt="Conference" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">CAD model of the Z-axis control</p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <img src="model1.png" alt="New Project Model" style="width: 100%; max-width: 300px;" />
+        <p style="font-size: 0.95rem;">Physical prototype for testing in one axis</p>
+      </div>
+      <div style="flex: 1; text-align: center;">
+        <img src="rayepic2.jpg" alt="Previous Sailboat" style="width: 100%; max-width: 300px;" />
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 4rem;"></div>
+  <hr style="border: none; border-top: 1px solid #aaa; width: 90%; margin: auto;" />
+  <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: #f4f4f4; line-height: 2rem;">
+    <p style="font-weight: 800; font-size: 1.2rem; margin: 0;">Asvin Sankaran</p>
+    <p style="font-weight: 500; font-size: 1rem; margin: 0; color: #111;">asvinsankaran1@gmail.com</p>
+    <p style="font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">
+      <a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank" style="text-decoration: none; color: #111;">LinkedIn ›</a>
+    </p>
+  </footer>
+</body>
+</html>
