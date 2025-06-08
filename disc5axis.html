@@ -159,6 +159,42 @@
       margin-top: 0.5rem;
       color: #444;
     }
+    
+    .media-grid.two-column {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    .media-box {
+      background-color: #e4e4e4;
+      overflow: hidden;
+    }
+    
+    .media-box video,
+    .media-box img {
+      width: 100%;
+      aspect-ratio: 14 / 9;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .media-box .caption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #444;
+    }
+    
+    /* Control widths */
+    .media-box.wide {
+      flex: 0 1 60%;
+    }
+    
+    .media-box.narrow {
+      flex: 0 1 38%; /* a little less to account for gap */
+    }
+
 
   </style>
 </head>
