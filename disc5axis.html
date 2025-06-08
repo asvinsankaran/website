@@ -104,24 +104,29 @@
       max-width: 100%;
       display: block;
     }
-    .back-arrow {
-      display: inline-block;
-      margin: 1rem 2rem;
-      font-size: 1rem;
+    .box-back-arrow {
+      position: absolute;
+      top: 1.5rem;
+      left: 2rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #333;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     
-    .back-arrow:hover {
+    .box-back-arrow:hover {
       color: #000;
       text-decoration: underline;
     }
+    
+    .project-text {
+      position: relative; /* ensures absolute children position correctly */
+    }
+
   </style>
 </head>
 <body>
-  <a href="index.html" class="back-arrow">← Back</a>
   <!-- Header -->
   <header>
     <h1>Asvin Sankaran<br>Portfolio</h1>
@@ -130,6 +135,7 @@
 
   <div class="section">
     <div style="padding-left: 0rem;">
+      <a href="index.html" class="box-back-arrow">← Back</a>
       <h2>5 Axis 3D Printer - D.I. Self Composite Alloys</h2>
       <p><a href="https://www.diselfcompositealloys.com/" target="_blank" style="font-size: 0.9rem; color: #555;">DISC Alloys ›</a></p>
     </div>
