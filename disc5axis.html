@@ -106,19 +106,22 @@
     }
     .box-back-arrow {
       position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
-      font-size: 0.95rem;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #333;
       text-decoration: none;
-      transition: color 0.3s ease;
+      background-color: #e4e4e4;
+      padding: 0.25rem 0.5rem;
+      z-index: 2;
     }
     
     .box-back-arrow:hover {
       color: #000;
       text-decoration: underline;
     }
+
     
     .project-text {
       position: relative; /* ensures absolute children position correctly */
@@ -161,9 +164,10 @@
   </header>
 
   <div class="section">
-    <div style="position: relative; padding-left: 0rem;">
+    <div style="position: relative;">
       <a href="index.html" class="box-back-arrow">← Back</a>
-      <h2>5 Axis 3D Printer - D.I. Self Composite Alloys</h2>
+      <div style="padding-left: 0rem;">
+        <h2>5 Axis 3D Printer - D.I. Self Composite Alloys</h2>
       <p><a href="https://www.diselfcompositealloys.com/" target="_blank" style="font-size: 0.9rem; color: #555;">DISC Alloys ›</a></p>
     </div>
 
