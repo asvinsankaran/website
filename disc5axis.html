@@ -162,8 +162,9 @@
       color: #444;
     }
     
-    .media-grid.two-column {
+    .media-grid-two-column {
       display: flex;
+      flex-wrap: nowrap;
       gap: 1rem;
       width: 100%;
     }
@@ -172,15 +173,14 @@
       display: flex;
       flex-direction: column;
       background-color: #e4e4e4;
-      overflow: hidden;
     }
     
     .media-box.wide {
-      flex: 3; /* 60% (3 parts of 5) */
+      flex: 0 0 60%;
     }
     
     .media-box.narrow {
-      flex: 2; /* 40% (2 parts of 5) */
+      flex: 0 0 40%;
     }
     
     .media-inner {
@@ -432,32 +432,30 @@
       </div>
     </div>
 
-    <div class="media-grid two-column">
-      <!-- Wide Video (60%) -->
+    <div class="media-grid-two-column">
       <div class="media-box wide">
         <div class="media-inner">
           <video autoplay muted loop playsinline>
             <source src="print4starvid.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
         </div>
         <div class="caption">
-          <strong>March 2025</strong><br />
+          <strong>March 2025</strong><br>
           Printing a 6-sided star shape using x=r*cos(6*theta)
         </div>
       </div>
     
-      <!-- Narrow Image (40%) -->
       <div class="media-box narrow">
         <div class="media-inner">
-          <img src="print4star.jpg" alt="Event" />
+          <img src="print4star.jpg" alt="Resulting print" />
         </div>
         <div class="caption">
-          <strong>March 2025</strong><br />
+          <strong>March 2025</strong><br>
           Resulting print with areas of underextrusion
         </div>
       </div>
     </div>
+
 
 
   </div>
