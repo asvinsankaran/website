@@ -132,7 +132,13 @@
       justify-content: center;
       flex-wrap: wrap;
     }
-    
+    .media-grid-bordered {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin: 1rem 0;
+      padding: 1rem 0; /* optional: spacing inside the border */
+    }
+
     .media-box {
       width: 100%;
       max-width: 350px;
@@ -301,34 +307,36 @@
         </div>
       </div>
     </div>
-    <div class="media-grid">
-      <!-- Image Card -->
-      <div class="media-box">
-        <img src="fullextrassy.jpg" alt="Event 1" />
-        <div class="caption">
-          <div class="date"><strong>January 2025</strong></div>
-          <div class="description">Near-complete assembly of the full printer</div>
+    <div class="media-grid-bordered">
+      <div class="media-grid">
+        <!-- Image Card -->
+        <div class="media-box">
+          <img src="fullextrassy.jpg" alt="Event 1" />
+          <div class="caption">
+            <div class="date"><strong>January 2025</strong></div>
+            <div class="description">Near-complete assembly of the full printer</div>
+          </div>
         </div>
-      </div>
-    
-      <!-- Video Card (✅ MATCHES height with image) -->
-      <div class="media-box">
-        <video autoplay muted loop playsinline class="media-video">
-          <source src="print2timelapse.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="caption">
-          <div class="date"><strong>January 2025</strong></div>
-          <div class="description">Timelapse of a first print using two axes, before fine-tune calibration</div>
+      
+        <!-- Video Card (✅ MATCHES height with image) -->
+        <div class="media-box">
+          <video autoplay muted loop playsinline class="media-video">
+            <source src="print2timelapse.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="caption">
+            <div class="date"><strong>January 2025</strong></div>
+            <div class="description">Timelapse of a first print using two axes, before fine-tune calibration</div>
+          </div>
         </div>
-      </div>
-    
-      <!-- Image Card -->
-      <div class="media-box">
-        <img src="print1.jpg" alt="Event 2" />
-        <div class="caption">
-          <div class="date"><strong>January 2025</strong></div>
-          <div class="description">First test print with clear indications of overextrusion and vibration</div>
+      
+        <!-- Image Card -->
+        <div class="media-box">
+          <img src="print1.jpg" alt="Event 2" />
+          <div class="caption">
+            <div class="date"><strong>January 2025</strong></div>
+            <div class="description">First test print with clear indications of overextrusion and vibration</div>
+          </div>
         </div>
       </div>
     </div>
