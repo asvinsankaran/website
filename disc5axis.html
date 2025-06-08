@@ -146,33 +146,7 @@
       overflow: hidden;
       background-color: #e4e4e4;
     }
-    
-    .media-box img,
-    .media-video {
-      width: 100%;
-      aspect-ratio: 14 / 9;
-      object-fit: cover;
-      display: block;
-    }
-    
-    .caption {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      color: #444;
-    }
-    
-    .media-grid.two-column {
-      display: flex;
-      gap: 1rem;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    
-    .media-box {
-      background-color: #e4e4e4;
-      overflow: hidden;
-    }
-    
+
     .media-box video,
     .media-box img {
       width: 100%;
@@ -187,15 +161,48 @@
       color: #444;
     }
     
-    /* Control widths */
+    .media-grid.two-column {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+    }
+    
+    .media-box {
+      display: flex;
+      flex-direction: column;
+      background-color: #e4e4e4;
+      overflow: hidden;
+    }
+    
     .media-box.wide {
-      flex: 0 1 60%;
+      flex: 3; /* 60% (3 parts of 5) */
     }
     
     .media-box.narrow {
-      flex: 0 1 38%; /* a little less to account for gap */
+      flex: 2; /* 40% (2 parts of 5) */
+    }
+    
+    .media-inner {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    
+    .media-inner video,
+    .media-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .caption {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: #444;
     }
 
+    
 
   </style>
 </head>
@@ -427,25 +434,30 @@
     <div class="media-grid two-column">
       <!-- Wide Video (60%) -->
       <div class="media-box wide">
-        <video autoplay muted loop playsinline>
-          <source src="print4starvid.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-inner">
+          <video autoplay muted loop playsinline>
+            <source src="print4starvid.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
         <div class="caption">
           <strong>March 2025</strong><br />
           Printing a 6-sided star shape using x=r*cos(6*theta)
         </div>
       </div>
     
-      <!-- Image (40%) -->
+      <!-- Narrow Image (40%) -->
       <div class="media-box narrow">
-        <img src="print4star.jpg" alt="Event" />
+        <div class="media-inner">
+          <img src="print4star.jpg" alt="Event" />
+        </div>
         <div class="caption">
           <strong>March 2025</strong><br />
           Resulting print with areas of underextrusion
         </div>
       </div>
     </div>
+
 
   </div>
   <div style="margin-top: 4rem;"></div>
