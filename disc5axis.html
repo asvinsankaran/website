@@ -139,15 +139,14 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      /* Reserve space to prevent CLS; adjust as needed per asset */
-      aspect-ratio: 14 / 9;
+      /* REMOVED fixed aspect-ratio to preserve original image sizes */
     }
     .media > img,
     .media > video {
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto; /* Changed from 100% to auto to preserve aspect ratio */
+      /* object-fit: cover; REMOVED to preserve original proportions */
       transition: transform 0.3s ease;
     }
     .media > img:hover,
@@ -163,19 +162,6 @@
       flex-grow: 1;
     }
     .caption .date { font-weight: 700; color: #222; }
-
-    /* Full-width media blocks that shouldn't be masonry-ized */
-    .full-bleed {
-      width: 100%;
-      margin: 1.5rem 0 0.25rem 0;
-      background: transparent;
-    }
-    .full-bleed video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .full-bleed + .caption { margin-top: 0.25rem; }
 
     /* Loading indicator */
     .loading {
