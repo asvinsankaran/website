@@ -88,24 +88,41 @@
       margin: 2rem auto 0 auto;
       /* Provide some side padding so cards don't touch container edge */
       padding: 0 calc(var(--gutter) / 2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .grid-loaded {
+      opacity: 1;
     }
     .grid-sizer,
-    .grid-item { width: calc((100% - (var(--gutter) * 2)) / 3); }
-    .gutter-sizer { width: var(--gutter); }
+    .grid-item { 
+      width: calc((100% - (var(--gutter) * 2)) / 3); 
+    }
+    .gutter-sizer { 
+      width: var(--gutter); 
+    }
 
     /* 2 columns on medium screens */
     @media (max-width: 900px) {
       .grid-sizer,
-      .grid-item { width: calc((100% - var(--gutter)) / 2); }
+      .grid-item { 
+        width: calc((100% - var(--gutter)) / 2); 
+      }
     }
     /* 1 column on small screens */
     @media (max-width: 600px) {
       .grid-sizer,
-      .grid-item { width: 100%; }
+      .grid-item { 
+        width: 100%; 
+      }
     }
 
     .grid-item {
       margin-bottom: var(--gutter);
+      transition: transform 0.2s ease;
+    }
+    .grid-item:hover {
+      transform: translateY(-4px);
     }
 
     /* Card styling for each media item */
@@ -115,6 +132,8 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      height: 100%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     .media {
       position: relative;
@@ -129,6 +148,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .media > img:hover,
+    .media > video:hover {
+      transform: scale(1.03);
     }
 
     .caption {
@@ -136,6 +160,7 @@
       color: var(--muted);
       font-size: 0.95rem;
       line-height: 1.4;
+      flex-grow: 1;
     }
     .caption .date { font-weight: 700; color: #222; }
 
@@ -151,6 +176,56 @@
       display: block;
     }
     .full-bleed + .caption { margin-top: 0.25rem; }
+
+    /* Loading indicator */
+    .loading {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .loading-dots {
+      display: inline-block;
+      position: relative;
+      width: 80px;
+      height: 20px;
+    }
+    .loading-dots div {
+      position: absolute;
+      top: 0;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #333;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .loading-dots div:nth-child(1) {
+      left: 8px;
+      animation: loading-dots1 0.6s infinite;
+    }
+    .loading-dots div:nth-child(2) {
+      left: 8px;
+      animation: loading-dots2 0.6s infinite;
+    }
+    .loading-dots div:nth-child(3) {
+      left: 32px;
+      animation: loading-dots2 0.6s infinite;
+    }
+    .loading-dots div:nth-child(4) {
+      left: 56px;
+      animation: loading-dots3 0.6s infinite;
+    }
+    @keyframes loading-dots1 {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+    @keyframes loading-dots3 {
+      0% { transform: scale(1); }
+      100% { transform: scale(0); }
+    }
+    @keyframes loading-dots2 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(24px, 0); }
+    }
 
     /* Utility */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,1px,1px); border: 0; }
@@ -175,6 +250,16 @@
     <p>
       I have been working at DISC Alloys for the past year on the design and development of a custom 5 axis 3D printer. This industrial printer is designed for adaptation with their novel metal printing technology, which will induce heavy stresses and loads (hence the requirement for a custom printer). I have worked full-time at DISC during the summers and part-time during the school year. I am currently working on the controls algorithm for the robot and developing a slicer for printing intricate parts.
     </p>
+
+    <!-- Loading indicator (hidden when masonry initializes) -->
+    <div class="loading" id="loadingIndicator">
+      <div class="loading-dots">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!-- Masonry Grid -->
     <div class="grid" id="mediaGrid">
@@ -319,7 +404,7 @@
         </figcaption>
       </article>
 
-      <!-- Item 13 (video - full width media outside grid below as well) -->
+      <!-- Item 13 (video) -->
       <article class="grid-item card">
         <figure class="media">
           <video class="js-video" autoplay muted loop playsinline preload="metadata">
@@ -358,19 +443,6 @@
 
     </div>
 
-    <!-- Optional: a full-bleed block outside masonry if desired -->
-    <!--
-    <div class="full-bleed">
-      <video autoplay muted loop playsinline>
-        <source src="print3uaxiswide.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <div class="caption">
-      <strong>February 2025</strong><br />
-      Testing the U-axis by printing a curved cylinder from a custom Python G-code compiler
-    </div>
-    -->
-
   </main>
 
   <div style="margin-top: 4rem;"></div>
@@ -385,34 +457,68 @@
 
   <script>
     // Wait for both Masonry + imagesLoaded scripts to be ready
-    window.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if required libraries are available
+      if (typeof Masonry === 'undefined' || typeof imagesLoaded === 'undefined') {
+        console.error('Masonry or imagesLoaded not loaded');
+        document.getElementById('mediaGrid').style.opacity = 1;
+        document.getElementById('loadingIndicator').style.display = 'none';
+        return;
+      }
+
       var grid = document.querySelector('#mediaGrid');
-      if (!grid || !window.Masonry || !window.imagesLoaded) return;
+      var loadingIndicator = document.getElementById('loadingIndicator');
+      
+      if (!grid) return;
 
-      // Initialize Masonry
-      var msnry = new Masonry(grid, {
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        gutter: '.gutter-sizer',
-        percentPosition: true,
-        transitionDuration: '0.2s'
+      // Initialize imagesLoaded
+      var imgLoad = imagesLoaded(grid);
+      
+      // Initialize Masonry after all images are loaded
+      imgLoad.on('progress', function(instance, image) {
+        // Optional: you could add progress tracking here
       });
+      
+      imgLoad.on('always', function() {
+        // Initialize Masonry
+        var msnry = new Masonry(grid, {
+          itemSelector: '.grid-item',
+          columnWidth: '.grid-sizer',
+          gutter: '.gutter-sizer',
+          percentPosition: true,
+          transitionDuration: '0.4s',
+          stagger: 30,
+          initLayout: true
+        });
+        
+        // Hide loading indicator and show grid
+        loadingIndicator.style.display = 'none';
+        grid.classList.add('grid-loaded');
+        
+        // Also re-layout when videos are ready (metadata gives dimensions)
+        grid.querySelectorAll('video.js-video').forEach(function (vid) {
+          // When metadata is loaded (we know intrinsic size), trigger layout
+          vid.addEventListener('loadedmetadata', function () { 
+            msnry.layout(); 
+          });
+          // If video starts playing later, ensure layout stays tight
+          vid.addEventListener('playing', function () { 
+            msnry.layout(); 
+          });
+        });
 
-      // Re-layout when images load
-      imagesLoaded(grid).on('progress', function () {
-        msnry.layout();
+        // Re-layout on window resize
+        window.addEventListener('resize', function () { 
+          msnry.layout(); 
+        });
       });
-
-      // Also re-layout when videos are ready (metadata gives dimensions)
-      grid.querySelectorAll('video.js-video').forEach(function (vid) {
-        // When metadata is loaded (we know intrinsic size), trigger layout
-        vid.addEventListener('loadedmetadata', function () { msnry.layout(); });
-        // If video starts playing later, ensure layout stays tight
-        vid.addEventListener('playing', function () { msnry.layout(); });
+      
+      // Handle errors in image loading
+      imgLoad.on('fail', function() {
+        console.warn('Some images failed to load, but continuing with Masonry');
+        loadingIndicator.style.display = 'none';
+        grid.classList.add('grid-loaded');
       });
-
-      // Optional: re-layout on window resize (Masonry handles this internally, but can help for videos)
-      window.addEventListener('resize', function () { msnry.layout(); });
     });
   </script>
 </body>
