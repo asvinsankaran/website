@@ -5,12 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>5 Axis - Asvin Sankaran</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Masonry + imagesLoaded (from CDN) -->
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js" defer></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js" defer></script>
+
   <style>
+    :root {
+      --bg: #f4f4f4;
+      --ink: #111;
+      --muted: #444;
+      --card: #e4e4e4;
+      --border: #ccc;
+      --gutter: 16px; /* Masonry gutter size */
+    }
+    * { box-sizing: border-box; }
+
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       margin: 0;
-      background-color: #f4f4f4;
-      color: #111;
+      background-color: var(--bg);
+      color: var(--ink);
     }
 
     header {
@@ -18,10 +33,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 2rem;
-      background-color: #f4f4f4;
-      border-bottom: 1px solid #ccc;
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
     }
-
     header h1 {
       margin: 0;
       font-size: 2rem;
@@ -31,7 +45,6 @@
       margin-left: 3rem;
       line-height: 1.2;
     }
-
     header a {
       text-decoration: none;
       color: #333;
@@ -40,66 +53,23 @@
     }
 
     .section {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 2rem auto;
-      background-color: #e4e4e4;
-      padding: 3rem 2rem;
+      background-color: var(--card);
+      padding: 2rem 1.25rem;
       border-radius: 0;
     }
-
     .section h2 {
       font-size: 2.2rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin: 0 0 0.5rem 0;
     }
-
     .section p, .section li {
       font-size: 1.05rem;
       line-height: 1.8;
       color: #222;
     }
-
-    .section ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .image-row {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-      margin-top: 2rem;
-      flex-wrap: nowrap;
-      align-items: stretch;
-      justify-content: space-between;
-    }
-
-
-    .image-row img {
-      width: 100%;
-      height: auto;
-      border-radius: 0px;
-    }
-
-    .image-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .image-container {
-      flex: 1;
-      min-width: 0; /* Prevents overflow */
-    }
-
-    .image-container .caption {
-      text-align: left;
-    }
-
-    .image-container video {
-      max-width: 100%;
-      display: block;
-    }
-    .box-back-arrow-top {
+    .section a.box-back-arrow-top {
       display: inline-block;
       margin-bottom: 0.5rem;
       font-size: 0.95rem;
@@ -107,123 +77,83 @@
       color: #333;
       text-decoration: none;
     }
-    
-    .box-back-arrow-top:hover {
-      text-decoration: underline;
-      color: #000;
+    .section a.box-back-arrow-top:hover { text-decoration: underline; color: #000; }
+
+    /*
+      Masonry grid
+      - We use percentage-based column widths with a .grid-sizer element to keep columns fluid
+      - .gutter-sizer controls the space between items
+    */
+    .grid {
+      margin: 2rem auto 0 auto;
+      /* Provide some side padding so cards don't touch container edge */
+      padding: 0 calc(var(--gutter) / 2);
     }
-    
-    .project-text {
-      position: relative; /* ensures absolute children position correctly */
+    .grid-sizer,
+    .grid-item { width: calc((100% - (var(--gutter) * 2)) / 3); }
+    .gutter-sizer { width: var(--gutter); }
+
+    /* 2 columns on medium screens */
+    @media (max-width: 900px) {
+      .grid-sizer,
+      .grid-item { width: calc((100% - var(--gutter)) / 2); }
     }
-    .media-grid {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .media-grid-bordered {
-      border-top: 1px solid #e4e4e4;
-      border-bottom: 1px solid #e4e4e4;
-      margin: 1rem 0;
-      padding: 1rem 0; /* optional: spacing inside the border */
+    /* 1 column on small screens */
+    @media (max-width: 600px) {
+      .grid-sizer,
+      .grid-item { width: 100%; }
     }
 
-    .media-box {
-      width: 100%;
-      max-width: 350px;
+    .grid-item {
+      margin-bottom: var(--gutter);
+    }
+
+    /* Card styling for each media item */
+    .card {
+      background: var(--card);
+      border-radius: 0;
       overflow: hidden;
-      background-color: #e4e4e4;
+      display: flex;
+      flex-direction: column;
     }
-
-    .media-box video,
-    .media-box img {
+    .media {
+      position: relative;
       width: 100%;
+      overflow: hidden;
+      /* Reserve space to prevent CLS; adjust as needed per asset */
       aspect-ratio: 14 / 9;
-      object-fit: cover;
+    }
+    .media > img,
+    .media > video {
       display: block;
-    }
-    
-    .media-box .caption {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      color: #444;
-    }
-    
-    .media-box {
-      display: flex;
-      flex-direction: column;
-      background-color: #e4e4e4;
-    }
-    
-    .media-box.wide {
-      flex: 0 0 60%;
-    }
-    
-    .media-box.narrow {
-      flex: 0 0 40%;
-    }
-    
-    .caption {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-      color: #444;
-    }
-    .media-grid-two-column {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-    }
-    
-    .media-grid-two-column .media-box {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      background-color: #e4e4e4;
-      max-width: none !important;
-      width: auto;
-      max-width: none;
-    }
-    
-    .media-grid-two-column .media-box.wide {
-      flex: 3;
-    }
-    
-    .media-grid-two-column .media-box.narrow {
-      flex: 2;
-    }
-    
-    .media-inner {
-      width: 100%;
-      overflow: hidden;
-    }
-    
-    .media-inner video,
-    .media-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
-    
-    .media-inner img {
+
+    .caption {
+      padding: 0.75rem 0.9rem 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+    .caption .date { font-weight: 700; color: #222; }
+
+    /* Full-width media blocks that shouldn't be masonry-ized */
+    .full-bleed {
+      width: 100%;
+      margin: 1.5rem 0 0.25rem 0;
+      background: transparent;
+    }
+    .full-bleed video {
       width: 100%;
       height: auto;
-      object-fit: unset; /* optional */
+      display: block;
     }
-    .image-row.same-height-row {
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-      align-items: stretch;
-    }
-    .media-box.wide {
-      flex: 3;
-    }
-    .media-box.narrow {
-      flex: 2;
-    }
-    
+    .full-bleed + .caption { margin-top: 0.25rem; }
+
+    /* Utility */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,1px,1px); border: 0; }
   </style>
 </head>
 <body>
@@ -233,232 +163,257 @@
     <a href="mailto:asvinsankaran1@gmail.com">asvinsankaran1@gmail.com</a>
   </header>
 
-  <div class="section">
+  <main class="section">
     <a href="index.html" class="box-back-arrow-top">← Back</a>
-  
     <h2>5 Axis 3D Printer - D.I. Self Composite Alloys</h2>
     <p>
-      <a href="https://www.diselfcompositealloys.com/" target="_blank" style="font-size: 0.9rem; color: #555;">
+      <a href="https://www.diselfcompositealloys.com/" target="_blank" rel="noopener" style="font-size: 0.9rem; color: #555;">
         DISC Alloys ›
       </a>
     </p>
 
-    <div class="image-row">
-      <div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
-        <p>
-          I have been working at DISC Alloys for the past year on the design and development of a custom 5 axis 3D printer. This industrial printer is designed for adaptation with their novel metal printing technology, which will induce heavy stresses and loads (hence the requirement for a custom printer).
-          I have worked full-time at DISC during the summers and part-time during the school year. I am currently working on the controls algorithm for the robot and developing a slicer for printing intricate parts. 
-        </p>
-      </div>
-    </div>
-    <div class="image-row">
-      <div class="image-container">
-        <img src="5axiscad.png" alt="Event 1" />
-        <div class="caption">
+    <p>
+      I have been working at DISC Alloys for the past year on the design and development of a custom 5 axis 3D printer. This industrial printer is designed for adaptation with their novel metal printing technology, which will induce heavy stresses and loads (hence the requirement for a custom printer). I have worked full-time at DISC during the summers and part-time during the school year. I am currently working on the controls algorithm for the robot and developing a slicer for printing intricate parts.
+    </p>
+
+    <!-- Masonry Grid -->
+    <div class="grid" id="mediaGrid">
+      <div class="grid-sizer"></div>
+      <div class="gutter-sizer"></div>
+
+      <!-- Item 1 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="5axiscad.png" alt="Completed Onshape CAD assembly" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>July 2024</strong></div>
           <div class="description">Completed Onshape (CAD) assembly</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <img src="5axisbom2.png" alt="Event 2" />
-        <div class="caption">
+        </figcaption>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="5axisbom2.png" alt="Consolidated BOM to track ordering and shipping" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>August 2024</strong></div>
           <div class="description">Consolidated BOM to track ordering and shipping</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <img src="cncing.jpg" alt="Event 3" />
-        <div class="caption">
+        </figcaption>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="cncing.jpg" alt="Manufacturing plates on the CNC using Mastercam controls" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>August 2024</strong></div>
           <div class="description">Manufacturing plates on the CNC using Mastercam controls</div>
-        </div>
-      </div>
-    </div>
+        </figcaption>
+      </article>
 
-    <div class="image-row">
-      <div class="image-container">
-        <img src="shaftmill.jpg" alt="Event 1" />
-        <div class="caption">
+      <!-- Item 4 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="shaftmill.jpg" alt="Custom actuation shaft informed by shaft calculations" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>September 2024</strong></div>
           <div class="description">Custom actuation shaft informed by shaft calculations</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <img src="5axiscomputer.jpg" alt="Event 2" />
-        <div class="caption">
+        </figcaption>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="5axiscomputer.jpg" alt="3D printer computer (Duet3D) with RPI interface" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>October 2024</strong></div>
           <div class="description">3D printer computer (Duet3D) with RPI interface</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <div style="width: 350px; height: 500px; overflow: hidden; border-radius: 0;">
-          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        </figcaption>
+      </article>
+
+      <!-- Item 6 (video) -->
+      <article class="grid-item card">
+        <figure class="media">
+          <video class="js-video" autoplay muted loop playsinline preload="metadata">
             <source src="motortesting.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-        </div>
-        <div class="caption">
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>October 2024</strong></div>
           <div class="description">Motor communication and control testing</div>
-        </div>
-      </div>
-    </div>
+        </figcaption>
+      </article>
 
-
-    
-    <div class="image-row">
-      <div class="image-container">
-        <img src="frameassy.jpg" alt="Event 1" />
-        <div class="caption">
+      <!-- Item 7 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="frameassy.jpg" alt="Completed assembly of the printer 8020 frame" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>November 2024</strong></div>
           <div class="description">Completed assembly of the printer 8020 frame</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <img src="vaxisassy.jpg" alt="Event 2" />
-        <div class="caption">
+        </figcaption>
+      </article>
+
+      <!-- Item 8 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="vaxisassy.jpg" alt="Actuation assembly for the V-axis table after machining" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>November 2024</strong></div>
           <div class="description">Actuation assembly for the V-axis table after machining</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <div style="width: 100%; aspect-ratio: 14 / 9; overflow: hidden; border-radius: 0;">
-          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        </figcaption>
+      </article>
+
+      <!-- Item 9 (video) -->
+      <article class="grid-item card">
+        <figure class="media">
+          <video class="js-video" autoplay muted loop playsinline preload="metadata">
             <source src="xaxistesting2.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-        </div>
-        <div class="caption">
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>December 2024</strong></div>
           <div class="description">Slowly moving the X-axis gantry</div>
-        </div>
-      </div>
-    </div>
+        </figcaption>
+      </article>
 
-
-    
-    <div class="image-row">
-      <div class="image-container">
-        <img src="fullextrassy.jpg" alt="Event 1" />
-        <div class="caption">
+      <!-- Item 10 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="fullextrassy.jpg" alt="Near-complete assembly of the full printer" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>January 2025</strong></div>
           <div class="description">Near-complete assembly of the full printer</div>
-        </div>
-      </div>
-  
-      <div class="image-container">
-        <div style="width: 100%; aspect-ratio: 14 / 9; overflow: hidden; border-radius: 0;">
-          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+        </figcaption>
+      </article>
+
+      <!-- Item 11 (video) -->
+      <article class="grid-item card">
+        <figure class="media">
+          <video class="js-video" autoplay muted loop playsinline preload="metadata">
             <source src="print2timelapse.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
-        </div>
-        <div class="caption">
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>January 2025</strong></div>
           <div class="description">Timelapse of a first print using two axes, before fine-tune calibration</div>
-        </div>
-      </div>
+        </figcaption>
+      </article>
 
-      <div class="image-container">
-        <img src="print1.jpg" alt="Event 2" />
-        <div class="caption">
+      <!-- Item 12 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="print1.jpg" alt="First test print with clear indications of overextrusion and vibration" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
           <div class="date"><strong>January 2025</strong></div>
           <div class="description">First test print with clear indications of overextrusion and vibration</div>
-        </div>
-      </div>
-    </div>
-    <div class="media-grid-bordered">
-      <div class="media-grid">
-        <!-- Image Card -->
-        <div class="media-box">
-          <img src="fullextrassy.jpg" alt="Event 1" />
-          <div class="caption">
-            <div class="date"><strong>January 2025</strong></div>
-            <div class="description">Near-complete assembly of the full printer</div>
-          </div>
-        </div>
-      
-        <!-- Video Card (✅ MATCHES height with image) -->
-        <div class="media-box">
-          <video autoplay muted loop playsinline class="media-video">
-            <source src="print2timelapse.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+        </figcaption>
+      </article>
+
+      <!-- Item 13 (video - full width media outside grid below as well) -->
+      <article class="grid-item card">
+        <figure class="media">
+          <video class="js-video" autoplay muted loop playsinline preload="metadata">
+            <source src="print3uaxiswide.mp4" type="video/mp4" />
           </video>
-          <div class="caption">
-            <div class="date"><strong>January 2025</strong></div>
-            <div class="description">Timelapse of a first print using two axes, before fine-tune calibration</div>
-          </div>
-        </div>
-      
-        <!-- Image Card -->
-        <div class="media-box">
-          <img src="print1.jpg" alt="Event 2" />
-          <div class="caption">
-            <div class="date"><strong>January 2025</strong></div>
-            <div class="description">First test print with clear indications of overextrusion and vibration</div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </figure>
+        <figcaption class="caption">
+          <div class="date"><strong>February 2025</strong></div>
+          <div class="description">Testing the U-axis by printing a curved cylinder from a custom Python G-code compiler</div>
+        </figcaption>
+      </article>
 
-
-    <div style="width: 100%; margin: 0.5rem 0;"> <!-- margin was 2 -->
-      <video autoplay muted loop playsinline style="width: 100%; height: auto; display: block;">
-        <source src="print3uaxiswide.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <div style="margin-top: 0rem;">
-      <div style="font-size: 0.95rem; color: #444;">
-        <strong>February 2025</strong><br />
-        Testing the U-axis by printing a curved cylinder from writing a custom Python script for compiling G-code
-      </div>
-    </div>
-
-    <div class="image-row" style="display: flex; width: 100%; gap: 1rem; align-items: stretch;">
-      <!-- Video container -->
-      <div style="flex: 3; display: flex; flex-direction: column;">
-        <div style="width: 100%; height: 100%; overflow: hidden;">
-          <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <!-- Item 14 (video) -->
+      <article class="grid-item card">
+        <figure class="media">
+          <video class="js-video" autoplay muted loop playsinline preload="metadata">
             <source src="print4starvid.mp4" type="video/mp4" />
           </video>
-        </div>
-        <div class="caption">
-          <strong>March 2025</strong><br>
-          Printing a 6-sided star shape using x=r*cos(6*theta)
-        </div>
-      </div>
-    
-      <!-- Image container -->
-      <div style="flex: 2; display: flex; flex-direction: column;">
-        <div style="width: 100%; height: 100%; overflow: hidden;">
-          <img src="print4star.jpg" alt="Resulting print"
-               style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        </div>
-        <div class="caption">
-          <strong>March 2025</strong><br>
-          Resulting print with areas of underextrusion
-        </div>
-      </div>
+        </figure>
+        <figcaption class="caption">
+          <div class="date"><strong>March 2025</strong></div>
+          <div class="description">Printing a 6-sided star shape using x=r*cos(6*theta)</div>
+        </figcaption>
+      </article>
+
+      <!-- Item 15 -->
+      <article class="grid-item card">
+        <figure class="media">
+          <img src="print4star.jpg" alt="Resulting star print with areas of underextrusion" loading="lazy" />
+        </figure>
+        <figcaption class="caption">
+          <div class="date"><strong>March 2025</strong></div>
+          <div class="description">Resulting print with areas of underextrusion</div>
+        </figcaption>
+      </article>
+
     </div>
 
+    <!-- Optional: a full-bleed block outside masonry if desired -->
+    <!--
+    <div class="full-bleed">
+      <video autoplay muted loop playsinline>
+        <source src="print3uaxiswide.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="caption">
+      <strong>February 2025</strong><br />
+      Testing the U-axis by printing a curved cylinder from a custom Python G-code compiler
+    </div>
+    -->
 
+  </main>
 
-  </div>
   <div style="margin-top: 4rem;"></div>
   <hr style="border: none; border-top: 1px solid #aaa; width: 90%; margin: auto;" />
-  <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: #f4f4f4; line-height: 2rem;">
+  <footer style="text-align: center; padding: 2rem 1rem; font-family: 'Inter', sans-serif; background-color: var(--bg); line-height: 2rem;">
     <p style="font-weight: 800; font-size: 1.2rem; margin: 0;">Asvin Sankaran</p>
     <p style="font-weight: 500; font-size: 1rem; margin: 0; color: #111;">asvinsankaran1@gmail.com</p>
     <p style="font-weight: 600; font-size: 1rem; margin-top: 0.5rem;">
-      <a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank" style="text-decoration: none; color: #111;">LinkedIn ›</a>
+      <a href="https://www.linkedin.com/in/asvin-sankaran/" target="_blank" rel="noopener" style="text-decoration: none; color: #111;">LinkedIn ›</a>
     </p>
   </footer>
+
+  <script>
+    // Wait for both Masonry + imagesLoaded scripts to be ready
+    window.addEventListener('DOMContentLoaded', function () {
+      var grid = document.querySelector('#mediaGrid');
+      if (!grid || !window.Masonry || !window.imagesLoaded) return;
+
+      // Initialize Masonry
+      var msnry = new Masonry(grid, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        gutter: '.gutter-sizer',
+        percentPosition: true,
+        transitionDuration: '0.2s'
+      });
+
+      // Re-layout when images load
+      imagesLoaded(grid).on('progress', function () {
+        msnry.layout();
+      });
+
+      // Also re-layout when videos are ready (metadata gives dimensions)
+      grid.querySelectorAll('video.js-video').forEach(function (vid) {
+        // When metadata is loaded (we know intrinsic size), trigger layout
+        vid.addEventListener('loadedmetadata', function () { msnry.layout(); });
+        // If video starts playing later, ensure layout stays tight
+        vid.addEventListener('playing', function () { msnry.layout(); });
+      });
+
+      // Optional: re-layout on window resize (Masonry handles this internally, but can help for videos)
+      window.addEventListener('resize', function () { msnry.layout(); });
+    });
+  </script>
 </body>
 </html>
